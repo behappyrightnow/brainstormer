@@ -1,0 +1,12 @@
+<div class="container">
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Let's share</h2>
+    <label for="inputUsername" class="sr-only">Your name</label>
+    <input type="text" id="inputUsername" class="form-control"
+      placeholder="Full Name" required="" autofocus="" ng-model="username"/>&nbsp;<p/>
+    <label for="story" class="sr-only">Your story</label>
+    <textarea id="story" class="form-control" rows="20" placeholder="Your story" ng-model="story"></textarea>&nbsp;<p/>
+    <button class="btn btn-lg btn-primary btn-block" type="submit"
+      ng-click="submitStory(username, story);">Submit</button>
+  </form>
+</div>

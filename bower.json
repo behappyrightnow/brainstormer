@@ -1,0 +1,13 @@
+{
+  "name": "brainstormer",
+  "description": "A neat brainstorming app",
+  "version": "0.1.0",
+  "homepage": "https://github.com/behappyrightnow/brainstormer",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "bootstrap": "latest",
+    "font-awesome": "latest"
+  }
+}
