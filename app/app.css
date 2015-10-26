@@ -5,3 +5,8 @@ html, body {
 .fill-height {
     height: 100%;
 }
+
+body {
+	margin: 0;
+	padding: 10px;
+}

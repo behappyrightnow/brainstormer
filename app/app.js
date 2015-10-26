@@ -3,7 +3,9 @@
 angular.module('brainstormer', [
     'ngRoute',
     'brainstormer.login',
-    'brainstormer.stories']).
+    'brainstormer.stories',
+    'ui.bootstrap'
+]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.otherwise({ redirectTo: '/login' });
     }]);

@@ -1,7 +1,9 @@
-The stories will show up here!
-<ul>
-    <li ng-repeat="message in stories">
-        {{message.name}}<br/>
-        {{message.story}}
-    </li>
-</ul>
+<div class="col-sm-6 col-md-3" ng-repeat="tile in tiles">
+    <div class="thumbnail tile tile-medium tile-teal">
+
+        <h4>{{tile.name}}</h4><br/>
+        {{tile.story}}
+        <button uib-popover-template="{{tile.templateUrl}}" popover-title="{{tile.name}}" type="{{tile.story}}" class="btn btn-default">More...</button>
+
+    </div>
+</div>

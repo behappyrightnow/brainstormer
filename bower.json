@@ -8,6 +8,8 @@
     "angular": "~1.4.0",
     "angular-route": "~1.4.0",
     "bootstrap": "latest",
-    "font-awesome": "latest"
+    "font-awesome": "latest",
+    "metro-bootstrap": "latest",
+    "angular-bootstrap": "latest"
   }
 }
