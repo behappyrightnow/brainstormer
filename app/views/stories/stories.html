@@ -1,9 +1,23 @@
-<div class="col-sm-6 col-md-3" ng-repeat="tile in tiles">
-    <div class="thumbnail tile tile-medium tile-teal">
+<!--<div class="col-sm-6 col-md-3" ng-repeat="tile in tiles">-->
+    <!--<div class="thumbnail tile tile-medium tile-orange">-->
 
-        <h4>{{tile.name}}</h4><br/>
-        {{tile.story}}
-        <button uib-popover-template="{{tile.templateUrl}}" popover-title="{{tile.name}}" type="{{tile.story}}" class="btn btn-default">More...</button>
+        <!--<h4>{{tile.name}}</h4><br/>-->
+        <!--{{tile.story}}-->
+        <!--<button uib-popover-template="{{tile.templateUrl}}" popover-title="{{tile.name}}" type="{{tile.story}}" class="btn btn-default">More...</button>-->
+
+<!--</div>-->
+<!--</div>-->
+
+<div deckgrid class="deckgrid" source="tiles">
+    <div class="photo">
+        <div class="photo-wrapper">
+            <img width="50" src="" data-ng-src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png">
+        </div>
+        <div class="photo-description" ng-click="popover">
+                <h4>{{card.name}}</h4>
+                {{card.story}}
+            <i class="fa fa-check"></i>
+        </div>
 
     </div>
 </div>

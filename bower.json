@@ -9,7 +9,7 @@
     "angular-route": "~1.4.0",
     "bootstrap": "latest",
     "font-awesome": "latest",
-    "metro-bootstrap": "latest",
-    "angular-bootstrap": "latest"
+    "angular-bootstrap": "latest",
+    "angular-deckgrid": "latest"
   }
 }

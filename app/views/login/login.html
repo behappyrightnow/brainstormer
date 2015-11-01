@@ -1,12 +1,35 @@
 <div class="container">
-  <form class="form-signin">
-    <h2 class="form-signin-heading">Let's share</h2>
-    <label for="inputUsername" class="sr-only">Your name</label>
-    <input type="text" id="inputUsername" class="form-control"
-      placeholder="Full Name" required="" autofocus="" ng-model="username"/>&nbsp;<p/>
-    <label for="story" class="sr-only">Your story</label>
-    <textarea id="story" class="form-control" rows="20" placeholder="Your story" ng-model="story"></textarea>&nbsp;<p/>
-    <button class="btn btn-lg btn-primary btn-block" type="submit"
-      ng-click="submitStory(username, story);">Submit</button>
-  </form>
+  <div class="row">
+      <div class="col-md-4">
+          <form class="form-signin">
+            <h2 class="form-signin-heading">Let's share</h2>
+            <label for="inputUsername" class="sr-only">Your name</label>
+            <input type="text" id="inputUsername" class="form-control"
+              placeholder="Full Name" required="" autofocus="" ng-model="username"/>&nbsp;<p/>
+            <input type="text" id="inputUsername" class="form-control"
+              placeholder="One line summary of story" required="" autofocus="" ng-model="username"/>&nbsp;<p/>
+
+              <label for="story" class="sr-only">Your story</label>
+            <textarea id="story" class="form-control" rows="20" placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit"
+              ng-click="submitStory(username, story);">Submit</button>
+          </form>
+      </div>
+      <div class="col-md-8">
+          <h2>Votes Left: 6</h2>
+          <div deckgrid class="deckgrid" source="tiles">
+                <div class="photo">
+                    <div class="photo-wrapper">
+                        <img width="50" src="" data-ng-src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png">
+                    </div>
+                    <div class="photo-description" ng-click="popover">
+                            <h4>{{card.name}}</h4>
+                            {{card.story}}
+
+                    </div>
+                    <i class="fa fa-check"></i>
+                </div>
+            </div>
+      </div>
+  </div>
 </div>

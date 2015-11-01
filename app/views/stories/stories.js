@@ -15,11 +15,13 @@ angular.module('brainstormer.stories', ['ngRoute'])
         var myScope = $scope;
         myDataRef.on('child_added', function (snapshot) {
             var newStory = snapshot.val();
-            newStory.templateUrl = "views/stories/popover.html";
             newStory.flipped = false;
             $scope.tiles.push(newStory);
             console.log("Pushed " + newStory.name + ", " + newStory.story);
             $scope.$apply();
         });
+        $scope.popover = function () {
+            console.log("popup");
+        };
     }]);
 //# sourceMappingURL=stories.js.map

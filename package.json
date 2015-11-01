@@ -1,0 +1,47 @@
+{
+  "name": "Brainstormer",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A brainstorming tool",
+  "repository": "https://github.com/behappyrightnow/brainstormer",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "devDependencies": {
+    "bower": "^1.3.1",
+    "angular": "latest",
+    "angular-bootstrap": "latest",
+    "angular-deckgrid": "latest",
+    "angular-route": "latest",
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "jquery": "latest",
+    "jshint": "latest",
+    "glob": "latest",
+    "uglifyjs": "latest",
+    "minifier": "latest",
+    "html-minifier": "latest",
+    "html-minifier-cli": "latest",
+    "ng-html2js": "latest",
+    "replace": "latest",
+    "copyfiles": "latest",
+    "clean-css": "latest",
+    "ngmin": "latest",
+    "mkdirp": "latest"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "build": "npm run makeBuildFolder && npm run buildView1 && npm run buildView2 && npm run replace && npm run minifyJS  && npm run buildCSS && npm run copyImages && npm run copyIndex",
+    "makeBuildFolder": "mkdirp dist",
+    "buildView1": "ng-html2js app/views/login/login.html -m brainstormer dist/login.js",
+    "buildView2": "ng-html2js app/views/stories/stories.html -m brainstormer dist/stories.js",
+    "replace": "replace 'app/views' 'views' dist/login.js && replace 'app/views' 'views' dist/stories.js",
+    "minifyJS": "npm run buildJS",
+    "copyApp": "copyfiles -u 1 app/app.js dist",
+    "buildJS": "npm run copyApp && uglifyjs app/bower_components/jquery/dist/jquery.min.js app/bower_components/bootstrap/dist/js/bootstrap.min.js app/bower_components/angular/angular.min.js app/bower_components/angular-route/angular-route.min.js app/bower_components/angular-deckgrid/angular-deckgrid.js app/bower_components/angular-bootstrap/ui-bootstrap.min.js dist/app.js app/views/login/*.js app/views/stories/*.js dist/login.js dist/stories.js --screw-ie8 -b -o dist/bundle.js",
+    "buildCSS": "cleancss --output dist/bundle.css app/bower_components/bootstrap/dist/css/bootstrap.min.css app/bower_components/font-awesome/css/font-awesome.min.css app/*.css app/views/login/login.css app/views/stories/stories.css",
+    "copyImages": "copyfiles -u 1 app/views/stories/images/* dist",
+    "copyIndex": "copyfiles -u 1 app/index.html dist"
+
+
+  }
+}
