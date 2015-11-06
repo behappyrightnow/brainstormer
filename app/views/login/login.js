@@ -39,6 +39,9 @@ angular.module('brainstormer.login', ['ngRoute'])
             myDataRef.set(data);
             $location.path("/stories");
         };
+        $scope.cancel = function () {
+            $location.path("/stories");
+        };
         myDataRef.on('value', function (dataSnapshot) {
             $scope.stories = dataSnapshot.val();
             $scope.storiesLoaded = true;

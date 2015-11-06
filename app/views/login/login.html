@@ -13,11 +13,16 @@
 
               <label for="story" class="sr-only">Your story</label>
             <textarea id="story" class="form-control" rows="20" placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
-            <button class="btn btn-lg btn-primary btn-block" type="submit"
+            <span ng-show="storiesLoaded===false">Loading...</span>
+            <button ng-show="storiesLoaded===true" class="btn btn-lg btn-primary" type="submit"
               ng-click="submitStory(username, summary, story);"
-              ng-disabled="summary === '' || story === '' || storiesLoaded===false">
+              ng-disabled="summary === '' || story === ''">
                 <span ng-show="storiesLoaded===true">Submit</span>
-                <span ng-show="storiesLoaded===false">Loading...</span></button>
+            </button>&nbsp;&nbsp;<button ng-show="storiesLoaded===true" class="btn btn-lg btn-primary"
+              ng-click="cancel()"
+              ng-disabled="summary === '' || story === ''">
+                <span ng-show="storiesLoaded===true">Cancel</span>
+            </button>
           </form>
 
   </div>
