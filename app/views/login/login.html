@@ -63,7 +63,6 @@
                             {{card.summary}}
 
                     </div>
-                    <pre>{{card.sessionID}}, {{mother.sessionID}}</pre>
                     <div ng-click="mother.vote(card)" ng-show="card.sessionID !== mother.sessionID">
                         <i ng-show="card.voted===false" class="fa fa-check"></i>
                         <i ng-show="card.voted===true" class="fa fa-times"></i>
