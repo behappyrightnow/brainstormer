@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b212154-cf4f-409e-a6e9-5cef70f28376" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login/login.css" afterPath="$PROJECT_DIR$/app/views/login/login.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login/login.html" afterPath="$PROJECT_DIR$/app/views/login/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login/login.js.map" afterPath="$PROJECT_DIR$/app/views/login/login.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login/login.js" afterPath="$PROJECT_DIR$/app/views/login/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login/login.ts" afterPath="$PROJECT_DIR$/app/views/login/login.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="brainstormer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,21 +59,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/login/login.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.888889" vertical-offset="3180" max-vertical-offset="4224">
+            <state vertical-scroll-proportion="0.18032786" vertical-offset="3180" max-vertical-offset="4224">
               <caret line="139" column="34" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/login/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4806867" vertical-offset="1296" max-vertical-offset="2136">
-              <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+            <state vertical-scroll-proportion="-5.65" vertical-offset="1341" max-vertical-offset="2256">
+              <caret line="70" column="76" selection-start-line="70" selection-start-column="76" selection-end-line="70" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -93,8 +92,8 @@
       <file leaf-file-name="login.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/login/login.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6557" max-vertical-offset="7152">
-              <caret line="292" column="1" selection-start-line="292" selection-start-column="1" selection-end-line="292" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6465" max-vertical-offset="7344">
+              <caret line="299" column="22" selection-start-line="299" selection-start-column="22" selection-end-line="299" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -152,11 +151,11 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/views/stories/stories.css" />
         <option value="$PROJECT_DIR$/app/demo.html" />
-        <option value="$PROJECT_DIR$/app/views/login/login.css" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/dist/bundle.css" />
         <option value="$PROJECT_DIR$/deploy.sh" />
         <option value="$PROJECT_DIR$/app/views/login/login.ts" />
+        <option value="$PROJECT_DIR$/app/views/login/login.css" />
         <option value="$PROJECT_DIR$/app/views/login/login.html" />
       </list>
     </option>
@@ -881,14 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/login/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6557" max-vertical-offset="7152">
-          <caret line="292" column="1" selection-start-line="292" selection-start-column="1" selection-end-line="292" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="624">
@@ -929,18 +920,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/login/login.ts">
+    <entry file="file://$PROJECT_DIR$/app/views/login/login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.888889" vertical-offset="3180" max-vertical-offset="4224">
-          <caret line="139" column="34" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6465" max-vertical-offset="7344">
+          <caret line="299" column="22" selection-start-line="299" selection-start-column="22" selection-end-line="299" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/login/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4806867" vertical-offset="1296" max-vertical-offset="2136">
-          <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+        <state vertical-scroll-proportion="-5.65" vertical-offset="1341" max-vertical-offset="2256">
+          <caret line="70" column="76" selection-start-line="70" selection-start-column="76" selection-end-line="70" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/login/login.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18032786" vertical-offset="3180" max-vertical-offset="4224">
+          <caret line="139" column="34" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
           <folding />
         </state>
       </provider>

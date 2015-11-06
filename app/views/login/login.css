@@ -291,3 +291,11 @@ img {
 .notvoted {
     background-color: white;
 }
+.interesting {
+    background-color: orange;
+    text-align: center;
+}
+.powerful {
+    background-color: yellow;
+    text-align: center;
+}
