@@ -138,6 +138,7 @@ angular.module('brainstormer.login', ['ngRoute'])
             $scope.storyID = card.storyID;
             $scope.votes = card.votes;
             $scope.otherUser = card.name;
+            $scope.username = card.name;
             if (card.sessionID === $scope.sessionID) {
                 console.log("Matched");
                 $scope.mode = "edit";
