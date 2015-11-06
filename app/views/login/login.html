@@ -23,8 +23,9 @@
 
               <label for="story" class="sr-only">Your story</label>
             <textarea id="story" class="form-control" rows="20" placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
-            <button class="btn btn-lg btn-primary btn-block" type="submit"
+            <button class="btn btn-lg btn-primary" type="submit"
               ng-click="updateStory(username, summary, story);" ng-disabled="summary === '' || story === ''">Update</button>
+            <button ng-click="addAnotherStory()" class="btn btn-primary btn-lg">I have another story</button>
           </form>
           <form ng-if="mode==='focus'" class="form-signin">
             <h2 class="form-signin-heading">Let's read a story</h2>
@@ -36,10 +37,11 @@
 
               <label for="story" class="sr-only">Your story</label>
             <textarea id="story" class="form-control" rows="20" disabled placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
-            <button ng-if="card.voted===false" class="btn btn-lg btn-primary btn-block" type="submit"
-              ng-click="vote(card);" ng-disabled="votesLeft===0">Vote</button>
-            <button ng-if="card.voted===true" class="btn btn-lg btn-primary btn-block" type="submit"
+            <button ng-if="card.voted===false" class="btn btn-lg btn-primary" type="submit"
+              ng-click="vote(card);" ng-disabled="votesLeft===0">Add Vote</button>
+            <button ng-if="card.voted===true" class="btn btn-lg btn-primary" type="submit"
               ng-click="vote(card);" ng-disabled="votesLeft===0">Remove vote</button>
+            <button ng-click="addAnotherStory()" class="btn btn-primary btn-lg">I have a story</button>
           </form>
           <div ng-if="mode==='stop'">
               <p>&nbsp;</p>
@@ -61,10 +63,13 @@
                             {{card.summary}}
 
                     </div>
-
+                    <pre>{{card.sessionID}}, {{mother.sessionID}}</pre>
                     <div ng-click="mother.vote(card)" ng-show="card.sessionID !== mother.sessionID">
                         <i ng-show="card.voted===false" class="fa fa-check"></i>
                         <i ng-show="card.voted===true" class="fa fa-times"></i>
+                    </div>
+                    <div ng-show="card.sessionID === mother.sessionID">
+                        <i class="fa fa-bookmark-o"></i>
                     </div>
                 </div>
             </div>
