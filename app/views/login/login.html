@@ -27,7 +27,7 @@
               ng-click="updateStory(username, summary, story);" ng-disabled="summary === '' || story === ''">Update</button>
           </form>
           <form ng-if="mode==='focus'" class="form-signin">
-            <h2 class="form-signin-heading">Let's edit your story</h2>
+            <h2 class="form-signin-heading">Let's read a story</h2>
             <label for="inputUsername" disabled class="sr-only">Your name</label>
             <input type="text" id="inputUsername" class="form-control"
               placeholder="Full Name" required="" disabled autofocus="" ng-model="otherUser"/>&nbsp;<p/>
