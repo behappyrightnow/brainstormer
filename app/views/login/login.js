@@ -25,6 +25,16 @@ angular.module('brainstormer.login', ['ngRoute'])
         $scope.votes = "";
         $scope.otherUser = "";
         $scope.card = null;
+        $scope.googleauth = function () {
+            myDataRef.authWithOAuthPopup("google", function (error, authData) {
+                if (error) {
+                    console.log("Login Failed!", error);
+                }
+                else {
+                    console.log("Authenticated successfully with payload:", authData);
+                }
+            });
+        };
         $scope.submitStory = function (username, summary, story) {
             console.log("Receieved " + username + ", " + story);
             var data = stories;

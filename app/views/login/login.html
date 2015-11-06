@@ -2,10 +2,13 @@
   <div class="row">
       <div class="col-md-4">
           <form ng-if="mode==='add'" class="form-signin">
-            <h2 class="form-signin-heading">Let's share</h2>
+            <h2 class="form-signin-heading">Let's share <button class="btn btn-info" ng-click="googleauth()">Google sign-in</button></h2>
             <label for="inputUsername" class="sr-only">Your name</label>
             <input type="text" id="inputUsername" class="form-control"
-              placeholder="Full Name" required="" autofocus="" ng-model="username"/>&nbsp;<p/>
+              placeholder="Full Name" required="" autofocus="" ng-model="username"/>
+
+              <p/>
+
             <input type="text" id="summary" class="form-control"
               placeholder="One line summary of story" required="" autofocus="" ng-model="summary"/>&nbsp;<p/>
 
