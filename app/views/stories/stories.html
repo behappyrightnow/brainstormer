@@ -1,23 +1,37 @@
-<!--<div class="col-sm-6 col-md-3" ng-repeat="tile in tiles">-->
-    <!--<div class="thumbnail tile tile-medium tile-orange">-->
+<div class="pull-right">
+    <button class="btn btn-primary" ng-click="addNewStory()">Add New Story</button>
+</div>
+<div class="container">
+  <div class="row">
+      <h2>Votes Left: {{votesLeft}}</h2>
 
-        <!--<h4>{{tile.name}}</h4><br/>-->
-        <!--{{tile.story}}-->
-        <!--<button uib-popover-template="{{tile.templateUrl}}" popover-title="{{tile.name}}" type="{{tile.story}}" class="btn btn-default">More...</button>-->
+      <div deckgrid class="deckgrid" source="tiles">
 
-<!--</div>-->
-<!--</div>-->
-
-<div deckgrid class="deckgrid" source="tiles">
-    <div class="photo">
-        <div class="photo-wrapper">
-            <img width="50" src="" data-ng-src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png">
+            <div class="photo"
+                 ng-click="mother.select(card)"
+                 ng-class="{voted:card.voted===true, notVoted:card.voted===false}">
+                <div class="photo-wrapper">
+                    <img width="50" src="" data-ng-src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png">
+                </div>
+                <div class="photo-description">
+                        <h4>{{card.name}}</h4>
+                        {{card.summary}}<br/>
+                        <span ng-show="card.selected && mother.mode!=='edit'">{{card.story}}</span>
+                        <textarea ng-show="card.selected && mother.mode==='edit'" id="story" class="form-control" rows="20" placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
+                </div>
+                <div ng-click="mother.vote(card)" ng-show="card.sessionID !== mother.sessionID">
+                    <table width="100%"><tr>
+                        <td class="interesting">Interesting</td>
+                        <td class="powerful">Powerful</td>
+                    </tr></table>
+                    <!--<i ng-show="card.voted===false" class="fa fa-check"></i>
+                    <i ng-show="card.voted===true" class="fa fa-times"></i>-->
+                </div>
+                <div ng-show="card.sessionID === mother.sessionID">
+                    <i class="fa fa-bookmark-o"></i>
+                </div>
+            </div>
         </div>
-        <div class="photo-description" ng-click="popover">
-                <h4>{{card.name}}</h4>
-                {{card.story}}
-            <i class="fa fa-check"></i>
-        </div>
 
-    </div>
+  </div>
 </div>

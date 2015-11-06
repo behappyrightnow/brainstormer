@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
-      <div class="col-md-4">
-          <form ng-if="mode==='add'" class="form-signin">
+          <form class="form-signin">
             <h2 class="form-signin-heading">Let's share <button class="btn btn-info" ng-click="googleauth()">Google sign-in</button></h2>
             <label for="inputUsername" class="sr-only">Your name</label>
             <input type="text" id="inputUsername" class="form-control"
@@ -15,74 +14,11 @@
               <label for="story" class="sr-only">Your story</label>
             <textarea id="story" class="form-control" rows="20" placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
             <button class="btn btn-lg btn-primary btn-block" type="submit"
-              ng-click="submitStory(username, summary, story);" ng-disabled="summary === '' || story === ''">Submit</button>
+              ng-click="submitStory(username, summary, story);"
+              ng-disabled="summary === '' || story === '' || storiesLoaded===false">
+                <span ng-show="storiesLoaded===true">Submit</span>
+                <span ng-show="storiesLoaded===false">Loading...</span></button>
           </form>
-          <form ng-if="mode==='edit'" class="form-signin">
-            <h2 class="form-signin-heading">Let's edit your story</h2>
-            <label for="inputUsername" class="sr-only">Your name</label>
-            <input type="text" id="inputUsername" class="form-control"
-              placeholder="Full Name" required="" autofocus="" ng-model="username"/>
 
-            <input type="text" id="summary" class="form-control"
-              placeholder="One line summary of story" required="" autofocus="" ng-model="summary"/>&nbsp;<p/>
-
-              <label for="story" class="sr-only">Your story</label>
-            <textarea id="story" class="form-control" rows="20" placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
-            <button class="btn btn-lg btn-primary" type="submit"
-              ng-click="updateStory(username, summary, story);" ng-disabled="summary === '' || story === ''">Update</button>
-            <button ng-click="addAnotherStory()" class="btn btn-primary btn-lg">I have another story</button>
-          </form>
-          <form ng-if="mode==='focus'" class="form-signin">
-            <h2 class="form-signin-heading">Let's read a story</h2>
-            <label for="inputUsername" disabled class="sr-only">Your name</label>
-            <input type="text" id="inputUsername" class="form-control"
-              placeholder="Full Name" required="" disabled autofocus="" ng-model="otherUser"/>&nbsp;<p/>
-            <input type="text" id="summary" class="form-control"
-              placeholder="One line summary of story" required="" autofocus="" ng-model="summary" disabled/>&nbsp;<p/>
-
-              <label for="story" class="sr-only">Your story</label>
-            <textarea id="story" class="form-control" rows="20" disabled placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
-            <button ng-if="card.voted===false" class="btn btn-lg btn-primary" type="submit"
-              ng-click="vote(card);" ng-disabled="votesLeft===0">Add Vote</button>
-            <button ng-if="card.voted===true" class="btn btn-lg btn-primary" type="submit"
-              ng-click="vote(card);" ng-disabled="votesLeft===0">Remove vote</button>
-            <button ng-click="addAnotherStory()" class="btn btn-primary btn-lg">I have a story</button>
-          </form>
-          <div ng-if="mode==='stop'">
-              <p>&nbsp;</p>
-              <button ng-click="addAnotherStory()" class="btn btn-primary btn-large">Submit Another Story</button>
-          </div>
-      </div>
-      <div class="col-md-8">
-          <h2>Votes Left: {{votesLeft}}</h2>
-
-          <div deckgrid class="deckgrid" source="tiles">
-
-                <div class="photo"
-                     ng-click="mother.select(card)"
-                     ng-class="{voted:card.voted===true, notVoted:card.voted===false}">
-                    <div class="photo-wrapper">
-                        <img width="50" src="" data-ng-src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png">
-                    </div>
-                    <div class="photo-description">
-                            <h4>{{card.name}}</h4>
-                            {{card.summary}}<br/>
-                            <span ng-show="card.selected && mother.mode!=='edit'">{{card.story}}</span>
-                            <textarea ng-show="card.selected && mother.mode==='edit'" id="story" class="form-control" rows="20" placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
-                    </div>
-                    <div ng-click="mother.vote(card)" ng-show="card.sessionID !== mother.sessionID">
-                        <table width="100%"><tr>
-                            <td class="interesting">Interesting</td>
-                            <td class="powerful">Powerful</td>
-                        </tr></table>
-                        <!--<i ng-show="card.voted===false" class="fa fa-check"></i>
-                        <i ng-show="card.voted===true" class="fa fa-times"></i>-->
-                    </div>
-                    <div ng-show="card.sessionID === mother.sessionID">
-                        <i class="fa fa-bookmark-o"></i>
-                    </div>
-                </div>
-            </div>
-      </div>
   </div>
 </div>
