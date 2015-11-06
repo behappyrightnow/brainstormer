@@ -30,7 +30,7 @@
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
-    "build": "npm run makeBuildFolder && npm run buildView1 && npm run buildView2 && npm run replace && npm run minifyJS  && npm run buildCSS && npm run copyImages && npm run copyIndex",
+    "build": "npm run makeBuildFolder && npm run makeFontFolder && npm run buildView1 && npm run buildView2 && npm run replace && npm run minifyJS  && npm run buildCSS && npm run copyImages && npm run copyIndex && npm run buildFont",
     "makeBuildFolder": "mkdirp dist",
     "buildView1": "ng-html2js app/views/login/login.html -m brainstormer dist/login.js",
     "buildView2": "ng-html2js app/views/stories/stories.html -m brainstormer dist/stories.js",
@@ -40,7 +40,13 @@
     "buildJS": "npm run copyApp && uglifyjs app/bower_components/jquery/dist/jquery.min.js app/bower_components/bootstrap/dist/js/bootstrap.min.js app/bower_components/angular/angular.min.js app/bower_components/angular-route/angular-route.min.js app/bower_components/angular-deckgrid/angular-deckgrid.js app/bower_components/angular-bootstrap/ui-bootstrap.min.js dist/app.js app/views/login/*.js app/views/stories/*.js dist/login.js dist/stories.js --screw-ie8 -b -o dist/bundle.js",
     "buildCSS": "cleancss --output dist/bundle.css app/bower_components/bootstrap/dist/css/bootstrap.min.css app/bower_components/font-awesome/css/font-awesome.min.css app/*.css app/views/login/login.css",
     "copyImages": "copyfiles -u 1 app/views/stories/images/* dist",
-    "copyIndex": "copyfiles -u 1 app/index.html dist"
+    "copyIndex": "copyfiles -u 1 app/index.html dist",
+    "makeFontFolder": "mkdirp dist/fonts",
+    "copyFAFont": "copyfiles -u 3 app/bower_components/font-awesome/fonts/* dist/",
+    "copyBSFont": "copyfiles -u 4 app/bower_components/bootstrap/dist/fonts/* dist/",
+    "replaceFAFontRef": "replace '../app/bower_components/font-awesome/' '' dist/bundle.css",
+    "replaceBSFontRef": "replace '../app/bower_components/bootstrap/dist/' '' dist/bundle.css",
+    "buildFont": "npm run makeFontFolder && npm run copyFAFont && npm run copyBSFont && npm run replaceFAFontRef && npm run replaceBSFontRef"
 
 
   }
