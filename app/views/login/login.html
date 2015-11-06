@@ -55,6 +55,7 @@
       </div>
       <div class="col-md-8">
           <h2>Votes Left: {{votesLeft}}</h2>
+
           <div deckgrid class="deckgrid" source="tiles">
 
                 <div class="photo"
@@ -65,8 +66,8 @@
                     </div>
                     <div class="photo-description">
                             <h4>{{card.name}}</h4>
-                            {{card.summary}}
-
+                            {{card.summary}}<br/>
+                            <span ng-show="card.selected">{{card.story}}</span>
                     </div>
                     <div ng-click="mother.vote(card)" ng-show="card.sessionID !== mother.sessionID">
                         <i ng-show="card.voted===false" class="fa fa-check"></i>

@@ -81,6 +81,7 @@ angular.module('brainstormer.login', ['ngRoute'])
         myDataRef.on('child_added', function (snapshot) {
             var newStory = snapshot.val();
             newStory.voted = false;
+            newStory.selected = false;
             stories[newStory.storyID] = {
                 sessionID: newStory.sessionID,
                 storyID: newStory.storyID,
@@ -139,6 +140,7 @@ angular.module('brainstormer.login', ['ngRoute'])
             $scope.votes = card.votes;
             $scope.otherUser = card.name;
             $scope.username = card.name;
+            card.selected = !card.selected;
             if (card.sessionID === $scope.sessionID) {
                 console.log("Matched");
                 $scope.mode = "edit";
