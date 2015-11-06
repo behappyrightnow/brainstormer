@@ -2,6 +2,8 @@
 ///<reference path="../../lib/vendorTypeDefinitions/firebase.d.ts"/>
 'use strict';
 var astro;
+//var firebaseApp = 'https://pn7jcaj0hcs.firebaseio-demo.com/';
+var firebaseApp = 'https://luminous-heat-1750.firebaseio.com/';
 angular.module('brainstormer.login', ['ngRoute'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/login', {
@@ -10,7 +12,7 @@ angular.module('brainstormer.login', ['ngRoute'])
         });
     }])
     .controller('LoginCtrl', ['$scope', '$location', '$route', function ($scope, $location, $rootScope) {
-        var myDataRef = new Firebase('https://pn7jcaj0hcs.firebaseio-demo.com/');
+        var myDataRef = new Firebase(firebaseApp);
         $scope.votesLeft = 6;
         var sessionID = generateUUID();
         $scope.sessionID = sessionID;
@@ -136,7 +138,7 @@ angular.module('brainstormer.login', ['ngRoute'])
             }
         };
         function updateCardVote(card) {
-            var storyCardRef = new Firebase('https://pn7jcaj0hcs.firebaseio-demo.com/' + card.storyID);
+            var storyCardRef = new Firebase(firebaseApp + card.storyID);
             var story = stories[card.storyID];
             story.votes = card.votes;
             storyCardRef.set(story);
