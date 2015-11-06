@@ -20,7 +20,9 @@
           <form ng-if="mode==='edit'" class="form-signin">
             <h2 class="form-signin-heading">Let's edit your story</h2>
             <label for="inputUsername" class="sr-only">Your name</label>
-            {{username}}
+            <input type="text" id="inputUsername" class="form-control"
+              placeholder="Full Name" required="" autofocus="" ng-model="username"/>
+
             <input type="text" id="summary" class="form-control"
               placeholder="One line summary of story" required="" autofocus="" ng-model="summary"/>&nbsp;<p/>
 
