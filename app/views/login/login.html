@@ -12,7 +12,7 @@
               placeholder="One line summary of story" required="" autofocus="" ng-model="summary"/>&nbsp;<p/>
 
               <label for="story" class="sr-only">Your story</label>
-            <textarea id="story" class="form-control" rows="20" placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
+            <textarea id="story" class="form-control storyBox" placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
             <span ng-show="storiesLoaded===false">Loading...</span>
             <button ng-show="storiesLoaded===true" class="btn btn-lg btn-primary" type="submit"
               ng-click="submitStory(username, summary, story);"
