@@ -1,5 +1,6 @@
 ///<reference path="../../lib/vendorTypeDefinitions/angular.d.ts"/>
 ///<reference path="../../lib/vendorTypeDefinitions/firebase.d.ts"/>
+///<reference path="../../app.ts"/>
 'use strict';
 var astro;
 angular.module('brainstormer.stories', ['ngRoute'])
@@ -51,9 +52,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
         };
         $scope.addNewStory = function () {
             $location.path("/login");
-            if ($scope.$$phase !== "$apply" && $scope.$$phase !== "$digest") {
-                $scope.$apply();
-            }
+            updateScope($scope);
         };
         $scope.tiles = [];
         var myScope = $scope;
@@ -78,9 +77,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
             $scope.tiles.push(newStory);
             console.log("Pushed " + newStory.name + ", " + newStory.story);
             if (newStory.sessionID !== $scope.sessionID) {
-                if ($scope.$$phase !== "$apply" && $scope.$$phase !== "$digest") {
-                    $scope.$apply();
-                }
+                updateScope($scope);
             }
         });
         myDataRef.on('child_changed', function (snapshot) {
@@ -103,9 +100,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 }
             }
             console.log("Updated " + newStory.name + ", summary: " + newStory.summary + ", story: " + newStory.story);
-            if (newStory.sessionID !== $scope.sessionID) {
-                $scope.$apply();
-            }
+            updateScope($scope);
         });
         $scope.popover = function () {
             console.log("popup");

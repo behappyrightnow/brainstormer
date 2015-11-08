@@ -30,3 +30,8 @@ function generateUUID(){
     return Date.now()+uuid;
 }
 
+function updateScope($scope) {
+    if ($scope.$$phase !== "$apply" && $scope.$$phase !== "$digest") {
+        $scope.$apply();
+    }
+}

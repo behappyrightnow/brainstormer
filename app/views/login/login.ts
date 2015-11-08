@@ -1,5 +1,6 @@
 ///<reference path="../../lib/vendorTypeDefinitions/angular.d.ts"/>
 ///<reference path="../../lib/vendorTypeDefinitions/firebase.d.ts"/>
+///<reference path="../../app.ts"/>
 'use strict';
 var astro;
 
@@ -63,9 +64,7 @@ angular.module('brainstormer.login', ['ngRoute'])
             $scope.stories = [];
         }
         $scope.storiesLoaded = true;
-        if ($scope.$$phase !== "$apply" && $scope.$$phase !== "$digest") {
-            $scope.$apply();
-        }
+        updateScope($scope);
     });
 
 
