@@ -5,12 +5,14 @@
         <item url="file://$PROJECT_DIR$/app/views/stories/stories.js" />
         <item url="file://$PROJECT_DIR$/app/views/login/login.js" />
         <item url="file://$PROJECT_DIR$/app/app.js" />
+        <item url="file://$PROJECT_DIR$/app/views/admin/admin.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/app/views/stories/stories.js" />
       <root url="file://$PROJECT_DIR$/app/views/login/login.js" />
       <root url="file://$PROJECT_DIR$/app/app.js" />
+      <root url="file://$PROJECT_DIR$/app/views/admin/admin.js" />
     </CLASSES>
     <SOURCES />
   </library>

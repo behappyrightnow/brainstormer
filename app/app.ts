@@ -3,10 +3,12 @@
 'use strict';
 var appURL = 'https://luminous-heat-1750.firebaseio.com/';
 var storyURL = appURL+"stories/";
+var adminURL = appURL+"admin/";
 angular.module('brainstormer', [
         'ngRoute',
         'brainstormer.login',
         'brainstormer.stories',
+        'brainstormer.admin',
         'ui.bootstrap',
         'akoenig.deckgrid'
     ]).
@@ -18,6 +20,7 @@ angular.module('brainstormer', [
         "storyURL": storyURL,
         "app": new Firebase(appURL),
         "stories": new Firebase(storyURL),
+        "admin": new Firebase(adminURL),
         "sessionID": generateUUID(),
         "generateID": generateUUID,
         "imageURL": "http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png"
