@@ -86,7 +86,7 @@ and (min-device-width : 320px)
 and (max-device-width : 568px)
 and (orientation : portrait) {
     /* iPhone 5 portrait*/
-    .storyBox {
+    .form-control.storyBox {
         height:10em;
     }
 }
@@ -96,15 +96,16 @@ and (min-device-width : 320px)
 and (max-device-width : 568px)
 and (orientation : landscape) {
     /* iPhone 5 landscape*/
-    .storyBox {
+    .form-control.storyBox {
         height:6em;
     }
 
 }
 
-@media (min-width:1281px) {
-    /* hi-res laptops and desktops */
-    .storyBox {
-        height:20em;
+@media only screen
+and (min-device-width : 800px) {
+    .form-control.storyBox {
+        height:15em;
     }
+
 }
