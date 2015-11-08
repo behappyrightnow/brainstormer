@@ -9,7 +9,7 @@
 
                  ng-class="{interestingVoted:card.interestingSelected===true, powerfulVoted:card.powerfulSelected===true, notVoted:interestingSelected===false && powerfulSelected===false}">
                 <div class="photo-wrapper">
-                    <img width="50" src="" data-ng-src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png">
+                    <img width="50" src="{{card.imageURL}}" >
                 </div>
                 <div class="photo-description" ng-click="mother.select(card)">
                         <h4 ng-show="mother.mode!=='edit'">{{card.name}}</h4>

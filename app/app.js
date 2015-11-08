@@ -15,7 +15,8 @@ angular.module('brainstormer', [
     "appURL": appURL,
     "app": new Firebase(appURL),
     "sessionID": generateUUID(),
-    "generateID": generateUUID
+    "generateID": generateUUID,
+    "imageURL": "http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png"
 });
 function generateUUID() {
     var d = new Date().getTime();

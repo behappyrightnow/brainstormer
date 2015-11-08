@@ -27,7 +27,8 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 summary: card.summary,
                 story: card.story,
                 interesting: card.interesting,
-                powerful: card.powerful
+                powerful: card.powerful,
+                imageURL: card.imageURL
             };
             myDataRef.set(data);
             $scope.$apply();
@@ -52,7 +53,8 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 interesting: newStory.interesting,
                 powerful: newStory.powerful,
                 interestingSelected: newStory.interestingSelected,
-                powerfulSelected: newStory.powerfulSelected
+                powerfulSelected: newStory.powerfulSelected,
+                imageURL: newStory.imageURL
             };
             $scope.tiles.push(newStory);
             console.log("Pushed " + newStory.name + ", " + newStory.story);
@@ -70,6 +72,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
                     tile.powerful = newStory.powerful;
                     tile.interesting = newStory.interesting;
                     tile.name = newStory.name;
+                    tile.imageURL = newStory.imageURL;
                 }
             }
             console.log("Updated " + newStory.name + ", summary: " + newStory.summary + ", story: " + newStory.story);

@@ -16,12 +16,18 @@ angular.module('brainstormer.login', ['ngRoute'])
     $scope.stories = {};
     $scope.storiesLoaded = false;
     $scope.googleauth = function() {
+        console.log("Proceeding to authenticate with Google");
         myDataRef.authWithOAuthPopup("google", function(error, authData) {
           if (error) {
             console.log("Login Failed!", error);
           } else {
             console.log("Authenticated successfully with payload:", authData);
+            firebase.imageURL = authData.google.profileImageURL;
+            console.log("firebase.imageURL = "+ firebase.imageURL);
           }
+        }, {
+          remember: "sessionOnly",
+          scope: "email"
         });
     }
     $scope.submitStory = function(username, summary, story) {
@@ -35,7 +41,8 @@ angular.module('brainstormer.login', ['ngRoute'])
                 summary: summary,
                 story: story,
                 interesting: 0,
-                powerful: 0
+                powerful: 0,
+                imageURL: firebase.imageURL
             };
         $scope.username = username;
         myDataRef.set(data);
