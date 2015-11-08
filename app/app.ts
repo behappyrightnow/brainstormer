@@ -1,5 +1,5 @@
 ///<reference path="lib/vendorTypeDefinitions/angular.d.ts"/>
-
+///<reference path="lib/vendorTypeDefinitions/firebase.d.ts"/>
 'use strict';
 var appURL = 'https://luminous-heat-1750.firebaseio.com/';
 angular.module('brainstormer', [
@@ -27,6 +27,6 @@ function generateUUID(){
         d = Math.floor(d/16);
         return (c=='x' ? r : (r&0x3|0x8)).toString(16);
     });
-    return uuid;
+    return Date.now()+uuid;
 }
 

@@ -95,7 +95,7 @@
 }
 
 .deckgrid[deckgrid]::before {
-    content: '5 .column.size-1-5';
+    content: '4 .column.size-1-4';
     font-size: 0;
     visibility:hidden;
 }
