@@ -80,6 +80,18 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 updateScope($scope);
             }
         });
+        myDataRef.on('child_removed', function (snapshot) {
+            var delStory = snapshot.val();
+            var newTiles = new Array();
+            for (var i = 0; i < $scope.tiles.length; i++) {
+                var tile = $scope.tiles[i];
+                if (delStory.storyID !== tile.storyID) {
+                    newTiles.push(tile);
+                }
+            }
+            $scope.tiles = newTiles;
+            updateScope($scope);
+        });
         myDataRef.on('child_changed', function (snapshot) {
             var newStory = snapshot.val();
             if ($scope.lastVotedCard !== null && $scope.lastVotedCard.storyID === newStory.storyID) {
