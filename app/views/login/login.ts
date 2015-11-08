@@ -48,6 +48,12 @@ angular.module('brainstormer.login', ['ngRoute'])
         myDataRef.set(data);
         $location.path("/stories");
     }
+    //for (var i=0;i<100;i++) {
+    //        var millisecondsToWait = 500;
+    //        setTimeout(function(num) {
+    //            $scope.submitStory("someone"+num,"something","here's a nice story");
+    //        }, millisecondsToWait*i,i);
+    //    }
     $scope.cancel = function() {
         $location.path("/stories");
     }

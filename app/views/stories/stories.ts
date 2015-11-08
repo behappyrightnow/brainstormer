@@ -16,6 +16,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
     $scope.sessionID = sessionID;
     var stories = {};
     var myScope = $scope;
+    $scope.lastVotedCard = null;
     $scope.updateStory = function(card) {
         card.mode = "updated";
         var data = stories;
@@ -66,6 +67,12 @@ angular.module('brainstormer.stories', ['ngRoute'])
       });
     myDataRef.on('child_changed', function(snapshot) {
         var newStory = snapshot.val();
+        if ($scope.lastVotedCard !== null && $scope.lastVotedCard.storyID === newStory.storyID) {
+            if ($scope.lastVotedCard.interesting === newStory.interesting &&
+                $scope.lastVotedCard.powerful === newStory.powerful) {
+                return;
+            }
+        }
         for (var i=0;i<$scope.tiles.length;i++) {
             var tile = $scope.tiles[i];
             if (tile.storyID === newStory.storyID) {
@@ -132,6 +139,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
         var story = stories[card.storyID];
         story.interesting = card.interesting;
         story.powerful = card.powerful;
+        $scope.lastVotedCard = card;
         storyCardRef.set(story);
     }
 }]);
