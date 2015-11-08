@@ -16,8 +16,9 @@ angular.module('brainstormer.stories', ['ngRoute'])
     $scope.sessionID = sessionID;
     var stories = {};
     $scope.mode = "add";
-
+    var myScope = $scope;
     $scope.updateStory = function(card) {
+        $scope.mode = "updated";
         var data = stories;
         var storyID = card.storyID;
         data[storyID] = {
@@ -29,8 +30,9 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 interesting: card.interesting,
                 powerful: card.powerful
             };
+
         myDataRef.set(data);
-        $scope.mode = "stop";
+        $scope.$apply();
     }
     $scope.addNewStory = function() {
         $location.path("/login");
@@ -111,7 +113,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
         }
         console.log("Edit()");
         card.selected = !card.selected;
-        if (card.sessionID === $scope.sessionID) {
+        if (card.sessionID === $scope.sessionID && $scope.mode !== "updated") {
             console.log("Matched");
             $scope.mode = "edit";
         } else {
