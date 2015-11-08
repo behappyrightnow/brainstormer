@@ -55,7 +55,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 powerful: newStory.powerful,
                 interestingSelected: newStory.interestingSelected,
                 powerfulSelected: newStory.powerfulSelected,
-                imageURL: newStory.imageURL
+                imageURL: newStory.imageURL,
                 mode: "add"
             };
         $scope.tiles.push(newStory);
@@ -79,7 +79,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
         }
         console.log("Updated "+newStory.name+", summary: "+newStory.summary+", story: "+newStory.story);
         if (newStory.sessionID !== $scope.sessionID) {
-            $scope.$apply();
+            //$scope.$apply();
         }
       });
     $scope.popover = function() {
@@ -96,6 +96,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
             card.powerfulSelected = false;
             card.powerful--;
         }
+        console.log("makeInteresting(): interesting: "+card.interesting+", powerful: "+card.powerful);
         updateCardVote(card);
     }
     $scope.makePowerful = function(card) {
@@ -109,6 +110,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
             card.interestingSelected = false;
             card.interesting--;
         }
+        console.log("makePowerful(): interesting: "+card.interesting+", powerful: "+card.powerful);
         updateCardVote(card);
     }
     $scope.select = function(card) {
