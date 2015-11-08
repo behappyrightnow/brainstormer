@@ -8,8 +8,14 @@
             <div class="photo"
 
                  ng-class="{interestingVoted:card.interestingSelected===true, powerfulVoted:card.powerfulSelected===true, notVoted:interestingSelected===false && powerfulSelected===false}">
-                <div class="photo-wrapper">
+                <div class="photo-wrapper" ng-click="mother.photoClicked(card)">
                     <img width="50" src="{{card.imageURL}}" >
+
+                    <button
+                            ng-show="card.mode==='changeImage'"
+                            class="btn btn-info"
+                            ng-click="mother.googleauth(card)">Google sign-in</button>
+
                 </div>
                 <div class="photo-description" ng-click="mother.select(card)">
                         <h4 ng-show="card.mode!=='edit'">{{card.name}}</h4>

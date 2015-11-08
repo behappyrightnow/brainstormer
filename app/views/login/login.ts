@@ -63,7 +63,9 @@ angular.module('brainstormer.login', ['ngRoute'])
             $scope.stories = [];
         }
         $scope.storiesLoaded = true;
-        $scope.$apply();
+        if ($scope.$$phase !== "$apply" && $scope.$$phase !== "$digest") {
+            $scope.$apply();
+        }
     });
 
 

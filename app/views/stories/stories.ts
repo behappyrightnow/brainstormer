@@ -17,6 +17,21 @@ angular.module('brainstormer.stories', ['ngRoute'])
     var stories = {};
     var myScope = $scope;
     $scope.lastVotedCard = null;
+    $scope.googleauth = function(card) {
+        console.log("Proceeding to authenticate with Google");
+        myDataRef.authWithOAuthPopup("google", function(error, authData) {
+          if (error) {
+            console.log("Login Failed!", error);
+          } else {
+            console.log("Authenticated successfully with payload:", authData);
+            card.imageURL = authData.google.profileImageURL;
+            $scope.updateStory(card);
+          }
+        }, {
+          remember: "sessionOnly",
+          scope: "email"
+        });
+    }
     $scope.updateStory = function(card) {
         card.mode = "updated";
         var data = stories;
@@ -37,7 +52,9 @@ angular.module('brainstormer.stories', ['ngRoute'])
     }
     $scope.addNewStory = function() {
         $location.path("/login");
-        $scope.$apply();
+        if ($scope.$$phase !== "$apply" && $scope.$$phase !== "$digest") {
+            $scope.$apply();
+        }
     }
     $scope.tiles = [];
     var myScope = $scope;
@@ -62,7 +79,9 @@ angular.module('brainstormer.stories', ['ngRoute'])
         $scope.tiles.push(newStory);
         console.log("Pushed "+newStory.name+", "+newStory.story);
         if (newStory.sessionID !== $scope.sessionID) {
-            $scope.$apply();
+            if ($scope.$$phase !== "$apply" && $scope.$$phase !== "$digest") {
+                $scope.$apply();
+            }
         }
       });
     myDataRef.on('child_changed', function(snapshot) {
@@ -132,6 +151,12 @@ angular.module('brainstormer.stories', ['ngRoute'])
         } else {
             card.mode = "focus";
             $scope.card = card;
+        }
+    }
+    $scope.photoClicked = function(card) {
+        console.log("Clicked photo on card "+card.name);
+        if (card.sessionID === $scope.sessionID) {
+            card.mode = "changeImage";
         }
     }
     function updateCardVote(card) {
