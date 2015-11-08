@@ -79,7 +79,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
         }
         console.log("Updated "+newStory.name+", summary: "+newStory.summary+", story: "+newStory.story);
         if (newStory.sessionID !== $scope.sessionID) {
-            //$scope.$apply();
+            $scope.$apply();
         }
       });
     $scope.popover = function() {
