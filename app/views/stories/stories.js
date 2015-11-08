@@ -69,6 +69,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
                     tile.story = newStory.story;
                     tile.powerful = newStory.powerful;
                     tile.interesting = newStory.interesting;
+                    tile.name = newStory.name;
                 }
             }
             console.log("Updated " + newStory.name + ", summary: " + newStory.summary + ", story: " + newStory.story);

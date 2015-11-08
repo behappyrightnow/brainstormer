@@ -12,13 +12,23 @@
                     <img width="50" src="" data-ng-src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png">
                 </div>
                 <div class="photo-description" ng-click="mother.select(card)">
-                        <h4>{{card.name}}</h4>
-                        <b>{{card.summary}}</b><br/>
+                        <h4 ng-show="mother.mode!=='edit'">{{card.name}}</h4>
+                        <span ng-show="mother.mode!=='edit'"><b>{{card.summary}}</b><br/></span>
                         <span ng-show="card.selected && mother.mode!=='edit'">{{card.story}}</span>
+                        <input
+                                type="text" id="inputUsername" class="form-control"
+                                placeholder="Full Name"
+                                required="" autofocus=""
+                                ng-model="card.name" ng-show="card.selected &&
+                                mother.mode==='edit'"/>
+                        <input type="text" class="form-control" ng-show="card.selected &&
+                                mother.mode==='edit'"
+                               ng-model="card.summary"
+                                placeholder="One line summary of story"/>
                         <textarea class="form-control storyBox"
                                 ng-show="card.selected &&
                                 mother.mode==='edit'"
-                                id="story" class="form-control"
+                                id="story"
                                 placeholder="Your story. Think of a time when DA really came alive for you."
                                 ng-model="card.story"></textarea>&nbsp;<p/>
                         <button ng-show="card.selected &&
