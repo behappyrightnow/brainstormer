@@ -94,7 +94,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
         }
         if (card.powerfulSelected === true) {
             card.powerfulSelected = false;
-            card.interesting--;
+            card.powerful--;
         }
         updateCardVote(card);
     }
