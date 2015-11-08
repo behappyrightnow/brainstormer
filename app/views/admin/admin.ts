@@ -60,7 +60,7 @@ angular.module('brainstormer.admin', ['ngRoute'])
                     } else {
                         console.log('Remove succeeded');
                         card.deleteMode = false;
-                        delete $scope.stories[storyIndex];
+                        $scope.stories.splice(storyIndex,1);
                         updateScope($scope);
                     }
                 });
