@@ -34,7 +34,8 @@ angular.module('brainstormer.login', ['ngRoute'])
                 name: username,
                 summary: summary,
                 story: story,
-                votes: 0
+                interesting: 0,
+                powerful: 0
             };
         $scope.username = username;
         myDataRef.set(data);
@@ -45,6 +46,9 @@ angular.module('brainstormer.login', ['ngRoute'])
     }
     myDataRef.on('value', function(dataSnapshot) {
         $scope.stories = dataSnapshot.val();
+        if ($scope.stories === null) {
+            $scope.stories = [];
+        }
         $scope.storiesLoaded = true;
         $scope.$apply();
     });

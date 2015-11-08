@@ -6,26 +6,30 @@
       <div deckgrid class="deckgrid" source="tiles">
 
             <div class="photo"
-                 ng-click="mother.select(card)"
-                 ng-class="{voted:card.voted===true, notVoted:card.voted===false}">
+
+                 ng-class="{interestingVoted:card.interestingSelected===true, powerfulVoted:card.powerfulSelected===true, notVoted:interestingSelected===false && powerfulSelected===false}">
                 <div class="photo-wrapper">
                     <img width="50" src="" data-ng-src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png">
                 </div>
-                <div class="photo-description">
+                <div class="photo-description" ng-click="mother.select(card)">
                         <h4>{{card.name}}</h4>
-                        {{card.summary}}<br/>
+                        <b>{{card.summary}}</b><br/>
                         <span ng-show="card.selected && mother.mode!=='edit'">{{card.story}}</span>
-                        <textarea
+                        <textarea class="form-control storyBox"
                                 ng-show="card.selected &&
                                 mother.mode==='edit'"
                                 id="story" class="form-control"
-                                rows="20"
-                                placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
+                                placeholder="Your story. Think of a time when DA really came alive for you."
+                                ng-model="card.story"></textarea>&nbsp;<p/>
+                        <button ng-show="card.selected &&
+                                mother.mode==='edit'"
+                                class="btn btn-small btn-primary"
+                                ng-click="mother.updateStory(card)">Update</button>
                 </div>
                 <div ng-click="mother.vote(card)" ng-show="card.sessionID !== mother.sessionID">
                     <table width="100%"><tr>
-                        <td class="interesting">Interesting</td>
-                        <td class="powerful">Powerful</td>
+                        <td class="interesting" ng-click="mother.makeInteresting(card)">Interesting</td>
+                        <td class="powerful" ng-click="mother.makePowerful(card)">Powerful</td>
                     </tr></table>
                     <!--<i ng-show="card.voted===false" class="fa fa-check"></i>
                     <i ng-show="card.voted===true" class="fa fa-times"></i>-->

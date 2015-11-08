@@ -12,61 +12,24 @@ angular.module('brainstormer.stories', ['ngRoute'])
 }])
 .controller('StoriesCtrl', ['$scope','$location','$route','firebase', function($scope, $location, $rootScope, firebase) {
     var myDataRef = firebase.app;
-    $scope.votesLeft = 6;
     var sessionID = firebase.sessionID;
     $scope.sessionID = sessionID;
     var stories = {};
     $scope.mode = "add";
-    $scope.username = "";
-    $scope.summary = "";
-    $scope.story = "";
-    $scope.storyID = "";
-    $scope.votes = "";
-    $scope.otherUser = "";
-    $scope.card = null;
-    $scope.googleauth = function() {
-        myDataRef.authWithOAuthPopup("google", function(error, authData) {
-          if (error) {
-            console.log("Login Failed!", error);
-          } else {
-            console.log("Authenticated successfully with payload:", authData);
-          }
-        });
-    }
-    $scope.submitStory = function(username, summary, story) {
-        console.log("Receieved "+username+", "+story);
+
+    $scope.updateStory = function(card) {
         var data = stories;
-        var storyID = generateUUID();
+        var storyID = card.storyID;
         data[storyID] = {
                 sessionID: sessionID,
                 storyID: storyID,
-                name: username,
-                summary: summary,
-                story: story,
-                votes: 0
+                name: card.name,
+                summary: card.summary,
+                story: card.story,
+                interesting: card.interesting,
+                powerful: card.powerful
             };
-        $scope.sessionID = sessionID;
-        $scope.username = username;
         myDataRef.set(data);
-        $scope.mode = "stop";
-    }
-    $scope.updateStory = function(username, summary, story) {
-        console.log("Receieved "+username+", "+story);
-        var data = stories;
-        var storyID = $scope.storyID;
-        data[storyID] = {
-                sessionID: sessionID,
-                storyID: storyID,
-                name: username,
-                summary: summary,
-                story: story,
-                votes: $scope.votes
-            };
-        $scope.sessionID = sessionID;
-        $scope.username = username;
-        myDataRef.set(data);
-        $scope.summary = "";
-        $scope.story = "";
         $scope.mode = "stop";
     }
     $scope.addNewStory = function() {
@@ -77,7 +40,8 @@ angular.module('brainstormer.stories', ['ngRoute'])
     var myScope = $scope;
     myDataRef.on('child_added', function(snapshot) {
         var newStory = snapshot.val();
-        newStory.voted = false;
+        newStory.interestingSelected = false;
+        newStory.powerfulSelected = false;
         newStory.selected = false;
         stories[newStory.storyID] = {
                 sessionID: newStory.sessionID,
@@ -85,7 +49,10 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 name: newStory.name,
                 summary: newStory.summary,
                 story: newStory.story,
-                votes: newStory.votes
+                interesting: newStory.interesting,
+                powerful: newStory.powerful,
+                interestingSelected: newStory.interestingSelected,
+                powerfulSelected: newStory.powerfulSelected
             };
         $scope.tiles.push(newStory);
         console.log("Pushed "+newStory.name+", "+newStory.story);
@@ -100,6 +67,8 @@ angular.module('brainstormer.stories', ['ngRoute'])
             if (tile.storyID === newStory.storyID) {
                 tile.summary = newStory.summary;
                 tile.story = newStory.story;
+                tile.powerful = newStory.powerful;
+                tile.interesting = newStory.interesting;
             }
         }
         console.log("Updated "+newStory.name+", summary: "+newStory.summary+", story: "+newStory.story);
@@ -110,34 +79,37 @@ angular.module('brainstormer.stories', ['ngRoute'])
     $scope.popover = function() {
         console.log("popup");
     }
-
-    $scope.vote = function(card) {
-        if (card.voted === true) {
-            card.voted = false;
-            $scope.votesLeft++;
-            card.votes--;
-            updateCardVote(card);
-
-        } else if ($scope.votesLeft > 0) {
-            if (card.votes === undefined) {
-                card.votes = 0;
-            }
-            card.votes++;
-            card.voted = true;
-            $scope.votesLeft--;
-            updateCardVote(card);
-            console.log("Voted for " + card.storyID);
+    $scope.makeInteresting = function(card) {
+        card.interestingSelected = !card.interestingSelected;
+        if (card.interestingSelected) {
+            card.interesting++;
+        } else {
+            card.interesting--;
         }
-        $scope.select(card);
+        if (card.powerfulSelected === true) {
+            card.powerfulSelected = false;
+            card.interesting--;
+        }
+        updateCardVote(card);
+    }
+    $scope.makePowerful = function(card) {
+        card.powerfulSelected = !card.powerfulSelected;
+        if (card.powerfulSelected) {
+            card.powerful++;
+        } else {
+            card.powerful--;
+        }
+        if (card.interestingSelected === true) {
+            card.interestingSelected = false;
+            card.interesting--;
+        }
+        updateCardVote(card);
     }
     $scope.select = function(card) {
+        if ($scope.mode==="edit") {
+            return;
+        }
         console.log("Edit()");
-        $scope.summary = card.summary;
-        $scope.story = card.story;
-        $scope.storyID = card.storyID;
-        $scope.votes = card.votes;
-        $scope.otherUser = card.name;
-        $scope.username = card.name;
         card.selected = !card.selected;
         if (card.sessionID === $scope.sessionID) {
             console.log("Matched");
@@ -150,7 +122,8 @@ angular.module('brainstormer.stories', ['ngRoute'])
     function updateCardVote(card) {
         var storyCardRef = new Firebase(firebase.appURL + card.storyID);
         var story = stories[card.storyID];
-        story.votes = card.votes;
+        story.interesting = card.interesting;
+        story.powerful = card.powerful;
         storyCardRef.set(story);
     }
 }]);

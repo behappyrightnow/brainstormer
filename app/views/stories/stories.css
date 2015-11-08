@@ -204,8 +204,11 @@
         content: '1 .column.size-1-1';
     }
 }
-.voted {
-    background-color: greenyellow;
+.interestingVoted {
+    background-color: orange;
+}
+.powerfulVoted {
+    background-color: yellow;
 }
 .notvoted {
     background-color: white;
