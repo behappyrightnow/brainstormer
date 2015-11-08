@@ -11,7 +11,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
         });
     }])
     .controller('StoriesCtrl', ['$scope', '$location', '$route', 'firebase', function ($scope, $location, $rootScope, firebase) {
-        var myDataRef = firebase.app;
+        var myDataRef = firebase.stories;
         var sessionID = firebase.sessionID;
         $scope.sessionID = sessionID;
         var stories = {};
@@ -169,7 +169,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
             }
         };
         function updateCardVote(card) {
-            var storyCardRef = new Firebase(firebase.appURL + card.storyID);
+            var storyCardRef = new Firebase(firebase.storyURL + card.storyID);
             var story = stories[card.storyID];
             story.interesting = card.interesting;
             story.powerful = card.powerful;

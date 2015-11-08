@@ -2,6 +2,7 @@
 ///<reference path="lib/vendorTypeDefinitions/firebase.d.ts"/>
 'use strict';
 var appURL = 'https://luminous-heat-1750.firebaseio.com/';
+var storyURL = appURL + "stories/";
 angular.module('brainstormer', [
     'ngRoute',
     'brainstormer.login',
@@ -14,7 +15,9 @@ angular.module('brainstormer', [
     }]).
     constant("firebase", {
     "appURL": appURL,
+    "storyURL": storyURL,
     "app": new Firebase(appURL),
+    "stories": new Firebase(storyURL),
     "sessionID": generateUUID(),
     "generateID": generateUUID,
     "imageURL": "http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png"

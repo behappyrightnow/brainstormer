@@ -11,7 +11,7 @@ angular.module('brainstormer.login', ['ngRoute'])
         });
     }])
     .controller('LoginCtrl', ['$scope', '$location', '$route', 'firebase', function ($scope, $location, $rootScope, firebase) {
-        var myDataRef = firebase.app;
+        var myDataRef = firebase.stories;
         $scope.stories = {};
         $scope.storiesLoaded = false;
         $scope.googleauth = function () {
