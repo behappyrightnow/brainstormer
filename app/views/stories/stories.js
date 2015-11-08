@@ -14,10 +14,9 @@ angular.module('brainstormer.stories', ['ngRoute'])
         var sessionID = firebase.sessionID;
         $scope.sessionID = sessionID;
         var stories = {};
-        $scope.mode = "add";
         var myScope = $scope;
         $scope.updateStory = function (card) {
-            $scope.mode = "updated";
+            card.mode = "updated";
             var data = stories;
             var storyID = card.storyID;
             data[storyID] = {
@@ -112,17 +111,17 @@ angular.module('brainstormer.stories', ['ngRoute'])
             updateCardVote(card);
         };
         $scope.select = function (card) {
-            if ($scope.mode === "edit") {
+            if (card.mode === "edit") {
                 return;
             }
             console.log("Edit()");
             card.selected = !card.selected;
-            if (card.sessionID === $scope.sessionID && $scope.mode !== "updated") {
+            if (card.sessionID === $scope.sessionID && card.mode !== "updated") {
                 console.log("Matched");
-                $scope.mode = "edit";
+                card.mode = "edit";
             }
             else {
-                $scope.mode = "focus";
+                card.mode = "focus";
                 $scope.card = card;
             }
         };
