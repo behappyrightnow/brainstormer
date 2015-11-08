@@ -26,15 +26,15 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 else {
                     console.log("Authenticated successfully with payload:", authData);
                     card.imageURL = authData.google.profileImageURL;
-                    $scope.updateStory(card);
+                    $scope.updateStory(card, "imageUpdated");
                 }
             }, {
                 remember: "sessionOnly",
                 scope: "email"
             });
         };
-        $scope.updateStory = function (card) {
-            card.mode = "updated";
+        $scope.updateStory = function (card, mode) {
+            card.mode = mode;
             var data = stories;
             var storyID = card.storyID;
             data[storyID] = {
