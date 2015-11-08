@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4b212154-cf4f-409e-a6e9-5cef70f28376" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/stories/stories.html" afterPath="$PROJECT_DIR$/app/views/stories/stories.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/stories/stories.js.map" afterPath="$PROJECT_DIR$/app/views/stories/stories.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/stories/stories.js" afterPath="$PROJECT_DIR$/app/views/stories/stories.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/stories/stories.ts" afterPath="$PROJECT_DIR$/app/views/stories/stories.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="brainstormer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stories.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="stories.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/stories/stories.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72739726" vertical-offset="837" max-vertical-offset="3624">
+            <state vertical-scroll-proportion="-19.666666" vertical-offset="837" max-vertical-offset="3624">
               <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
               <folding />
             </state>
@@ -70,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stories.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="stories.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/stories/stories.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.90909" vertical-offset="0" max-vertical-offset="1440">
-              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.65346533" vertical-offset="720" max-vertical-offset="1440">
+              <caret line="41" column="110" selection-start-line="41" selection-start-column="110" selection-end-line="41" selection-end-column="110" />
               <folding />
             </state>
           </provider>
@@ -156,8 +154,8 @@
         <option value="$PROJECT_DIR$/app/views/stories/stories.css" />
         <option value="$PROJECT_DIR$/app/views/login/login.ts" />
         <option value="$PROJECT_DIR$/app/app.ts" />
-        <option value="$PROJECT_DIR$/app/views/stories/stories.html" />
         <option value="$PROJECT_DIR$/app/views/stories/stories.ts" />
+        <option value="$PROJECT_DIR$/app/views/stories/stories.html" />
       </list>
     </option>
   </component>
@@ -551,7 +549,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40764332" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40764332" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -969,18 +967,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/stories/stories.html">
+    <entry file="file://$PROJECT_DIR$/app/views/stories/stories.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.90909" vertical-offset="0" max-vertical-offset="1440">
-          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+        <state vertical-scroll-proportion="-19.666666" vertical-offset="837" max-vertical-offset="3624">
+          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/stories/stories.ts">
+    <entry file="file://$PROJECT_DIR$/app/views/stories/stories.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72739726" vertical-offset="837" max-vertical-offset="3624">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.65346533" vertical-offset="720" max-vertical-offset="1440">
+          <caret line="41" column="110" selection-start-line="41" selection-start-column="110" selection-end-line="41" selection-end-column="110" />
           <folding />
         </state>
       </provider>

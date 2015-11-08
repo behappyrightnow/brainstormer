@@ -38,8 +38,8 @@
                 </div>
                 <div ng-click="mother.vote(card)" ng-show="card.sessionID !== mother.sessionID">
                     <table width="100%"><tr>
-                        <td class="interesting" ng-click="mother.makeInteresting(card)">Interesting</td>
-                        <td class="powerful" ng-click="mother.makePowerful(card)">Powerful</td>
+                        <td class="interesting" ng-click="mother.makeInteresting(card)">Interesting<br/>{{card.interesting}}</td>
+                        <td class="powerful" ng-click="mother.makePowerful(card)">Powerful<br/>{{card.powerful}}</td>
                     </tr></table>
                     <!--<i ng-show="card.voted===false" class="fa fa-check"></i>
                     <i ng-show="card.voted===true" class="fa fa-times"></i>-->
