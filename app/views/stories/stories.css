@@ -227,3 +227,7 @@
   left: 162px;
   z-index: 20;
 }
+
+.storyContainer {
+    margin-top: 50px;
+}
