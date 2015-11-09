@@ -16,6 +16,8 @@ angular.module('brainstormer.login', ['ngRoute'])
     var myDataRef = firebase.stories;
     $scope.stories = {};
     $scope.storiesLoaded = false;
+    $scope.imageURL = firebase.imageURL;
+    $scope.username = firebase.username;
     $scope.googleauth = function() {
         console.log("Proceeding to authenticate with Google");
         myDataRef.authWithOAuthPopup("google", function(error, authData) {
@@ -24,7 +26,9 @@ angular.module('brainstormer.login', ['ngRoute'])
           } else {
             console.log("Authenticated successfully with payload:", authData);
             firebase.imageURL = authData.google.profileImageURL;
+            $scope.imageURL = firebase.imageURL;
             console.log("firebase.imageURL = "+ firebase.imageURL);
+            updateScope($scope);
           }
         }, {
           remember: "sessionOnly",
@@ -45,7 +49,8 @@ angular.module('brainstormer.login', ['ngRoute'])
                 powerful: 0,
                 imageURL: firebase.imageURL
             };
-        $scope.username = username;
+        firebase.username = username;
+        $scope.username = firebase.username;
         myDataRef.set(data);
         $location.path("/stories");
     }

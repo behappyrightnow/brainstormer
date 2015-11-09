@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
           <form class="form-signin">
-            <h2 class="form-signin-heading">Let's share <button class="btn btn-info" ng-click="googleauth()">Google sign-in</button></h2>
+            <h2 class="form-signin-heading">Let's share</h2>
+              <img src="{{imageURL}}" width="50"/><button class="btn btn-info pull-right" ng-click="googleauth()">Google sign-in</button>
             <label for="inputUsername" class="sr-only">Your name</label>
             <input type="text" id="inputUsername" class="form-control"
               placeholder="Full Name" required="" autofocus="" ng-model="username"/>

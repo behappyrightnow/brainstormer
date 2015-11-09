@@ -23,6 +23,7 @@ angular.module('brainstormer', [
         "admin": new Firebase(adminURL),
         "sessionID": generateUUID(),
         "generateID": generateUUID,
+        "username": "",
         "imageURL": "http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png"
     });
 
