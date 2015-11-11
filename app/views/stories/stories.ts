@@ -49,7 +49,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
             };
 
         myDataRef.set(data);
-        $scope.$apply();
+        updateScope($scope);
     }
     $scope.addNewStory = function() {
         $location.path("/login");

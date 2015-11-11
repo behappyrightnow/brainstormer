@@ -48,7 +48,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 imageURL: card.imageURL
             };
             myDataRef.set(data);
-            $scope.$apply();
+            updateScope($scope);
         };
         $scope.addNewStory = function () {
             $location.path("/login");
