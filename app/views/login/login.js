@@ -16,6 +16,8 @@ angular.module('brainstormer.login', ['ngRoute'])
         $scope.storiesLoaded = false;
         $scope.imageURL = firebase.imageURL;
         $scope.username = firebase.username;
+        $scope.summary = "";
+        $scope.story = "";
         $scope.googleauth = function () {
             console.log("Proceeding to authenticate with Google");
             myDataRef.authWithOAuthPopup("google", function (error, authData) {
