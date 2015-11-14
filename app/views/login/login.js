@@ -28,6 +28,7 @@ angular.module('brainstormer.login', ['ngRoute'])
                     console.log("Authenticated successfully with payload:", authData);
                     firebase.imageURL = authData.google.profileImageURL;
                     $scope.imageURL = firebase.imageURL;
+                    $scope.username = authData.google.displayName;
                     console.log("firebase.imageURL = " + firebase.imageURL);
                     updateScope($scope);
                 }

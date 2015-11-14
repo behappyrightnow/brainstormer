@@ -26,6 +26,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
           } else {
             console.log("Authenticated successfully with payload:", authData);
             card.imageURL = authData.google.profileImageURL;
+            card.name = authData.google.displayName;
             $scope.updateStory(card, "imageUpdated");
           }
         }, {
