@@ -19,17 +19,20 @@
               placeholder="One line summary of story" required="" autofocus="" ng-model="summary"/><br/>
 
               <label for="story" class="sr-only">Your story</label>
-            <textarea id="story" class="form-control storyBox" placeholder="Your story. Think of a time when DA really came alive for you." ng-model="story"></textarea>&nbsp;<p/>
+            <textarea
+                    id="story"
+                    class="form-control storyBox"
+                    placeholder="Your story. Think of a time when DA really came alive for you."
+                    ng-model="story">
+            </textarea><br/>
             <span ng-show="storiesLoaded===false">Loading...</span>
-            <button ng-show="storiesLoaded===true" class="btn btn-lg btn-primary" type="submit"
+            <button ng-show="storiesLoaded===true" class="btn btn-lg btn-primary pull-right" type="submit"
               ng-click="submitStory(username, summary, story);"
               ng-disabled="summary === '' || story === ''">
                 <span ng-show="storiesLoaded===true">Submit</span>
-            </button>&nbsp;&nbsp;<button ng-show="storiesLoaded===true" class="btn btn-lg btn-primary"
+            </button><br/><br/><br/><a ng-show="storiesLoaded===true" class="pull-right"
               ng-click="cancel()"
-              >
-                <span ng-show="storiesLoaded===true">Cancel</span>
-            </button>
+              >skip story</a>
           </form>
         </div>
   </div>
