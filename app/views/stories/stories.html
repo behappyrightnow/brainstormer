@@ -1,70 +1,107 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-        <button class="btn btn-primary pull-right storyBtn" ng-click="addNewStory()">Add New Story</button>
+    <div class="navbar-inner">
+        <div class="container">
+            <button class="btn btn-primary pull-right storyBtn" ng-click="addNewStory()">Add New Story</button>
+        </div>
     </div>
-  </div>
 </nav>
-<div class="container storyContainer">
-  <div class="row">
-      <div deckgrid class="deckgrid" source="tiles">
-
-            <div class="photo"
-                 ng-class="{interestingVoted:card.interestingVoted===true, powerfulVoted:card.powerfulVoted===true, notVoted:card.notVoted()===false}">
-                <table>
-
-                <tr><td>
-                    <div class="photo-wrapper" ng-click="mother.googleauth(card)">
-                    <img class="smallerpersona" width="50" src="{{card.imageURL}}" >
-
-                    </div>
-                    </td><td width="10%">&nbsp;&nbsp;</td><td>
-                        <h4 ng-show="card.mode!=='edit'">{{card.name}}</h4>
-                        <input
-                                type="text" id="inputUsername" class="form-control"
-                                placeholder="Full Name"
-                                required="" autofocus=""
-                                ng-model="card.name"
-                                ng-show="card.mode==='edit'"/>
-                </td></tr></table>
-                <div class="photo-description" ng-click="card.toggle()">
-                        <span ng-show="card.mode!=='edit'"><b>{{card.summary}}</b><br/></span>
-                        <span ng-show="card.expanded===true && card.mode!=='edit'">{{card.text}}</span>
-
-                        <input type="text" class="form-control"
-                                ng-show="card.mode==='edit'"
-                                ng-model="card.summary"
-                                placeholder="One line summary of story"/>
-                        <textarea class="form-control storyBox"
-                                ng-show="card.mode==='edit'"
-                                id="story"
-                                placeholder="Your story. Think of a time when DA really came alive for you."
-                                ng-model="card.text"></textarea>&nbsp;<p/>
-                        <button ng-show="card.mode==='edit'"
-                                class="btn btn-small btn-primary"
-                                ng-click="card.update($event)">Update</button>
+<div class="mainheadlinewrapperpage wrapper100percent startAnimation animated" data-animate="fadeInUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="mainheadlinepage">
+                    <h1>All Stories<br>
+                    </h1>
                 </div>
-                <div ng-click="mother.vote(card)" ng-show="card.sessionID !== mother.sessionID">
-                    <table width="100%"><tr>
-                        <!--
-                        <td class="interesting" ng-click="mother.makeInteresting(card)">Interesting<br/>{{card.interesting}}</td>
-                        <td class="powerful" ng-click="mother.makePowerful(card)">Powerful<br/>{{card.powerful}}</td>
-                        -->
-                        <td class="interesting" ng-click="card.voteInteresting()">Interesting<br/>{{card.interesting}}</td>
-                        <td class="powerful" ng-click="card.votePowerful()">Powerful<br/>{{card.powerful}}</td>
-                    </tr></table>
-
-                </div>
-                 <div ng-click="mother.vote(card)" ng-show="card.sessionID === mother.sessionID">
-                    <table width="100%"><tr>
-                        <td class="nonVotable">Interesting<br/>{{card.interesting}}</td>
-                        <td class="nonVotable">Powerful<br/>{{card.powerful}}</td>
-                    </tr></table>
-
-                </div>
-
             </div>
         </div>
+    </div>
+</div>
+<div class="wrapper100percent marginbottom4 startAnimation animated" data-animate="fadeInUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="pageContent">
 
-  </div>
+
+                    <div class="container storyContainer">
+                        <div class="row">
+                            <div deckgrid class="deckgrid" source="tiles">
+
+                                <div class="photo"
+                                     ng-class="{interestingVoted:card.interestingVoted===true, powerfulVoted:card.powerfulVoted===true, notVoted:card.notVoted()===false}">
+                                    <table>
+
+                                        <tr>
+                                            <td>
+                                                <div class="photo-wrapper" ng-click="mother.googleauth(card)">
+                                                    <img class="smallerpersona" width="50" src="{{card.imageURL}}">
+
+                                                </div>
+                                            </td>
+                                            <td width="10%">&nbsp;&nbsp;</td>
+                                            <td>
+                                                <h4 ng-show="card.mode!=='edit'">{{card.name}}</h4>
+                                                <input
+                                                        type="text" id="inputUsername" class="form-control"
+                                                        placeholder="Full Name"
+                                                        required="" autofocus=""
+                                                        ng-model="card.name"
+                                                        ng-show="card.mode==='edit'"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="photo-description" ng-click="card.toggle()">
+                                        <span ng-show="card.mode!=='edit'"><b>{{card.summary}}</b><br/></span>
+                                        <span ng-show="card.expanded===true && card.mode!=='edit'">{{card.text}}</span>
+
+                                        <input type="text" class="form-control"
+                                               ng-show="card.mode==='edit'"
+                                               ng-model="card.summary"
+                                               placeholder="One line summary of story"/>
+                        <textarea class="form-control storyBox"
+                                  ng-show="card.mode==='edit'"
+                                  id="story"
+                                  placeholder="Your story. Think of a time when DA really came alive for you."
+                                  ng-model="card.text"></textarea>&nbsp;<p/>
+                                        <button ng-show="card.mode==='edit'"
+                                                class="btn btn-small btn-primary"
+                                                ng-click="card.update($event)">Update
+                                        </button>
+                                    </div>
+                                    <div ng-click="mother.vote(card)" ng-show="card.sessionID !== mother.sessionID">
+                                        <table width="100%">
+                                            <tr>
+                                                <!--
+                                                <td class="interesting" ng-click="mother.makeInteresting(card)">Interesting<br/>{{card.interesting}}</td>
+                                                <td class="powerful" ng-click="mother.makePowerful(card)">Powerful<br/>{{card.powerful}}</td>
+                                                -->
+                                                <td class="interesting" ng-click="card.voteInteresting()">
+                                                    Interesting<br/>{{card.interesting}}
+                                                </td>
+                                                <td class="powerful" ng-click="card.votePowerful()">Powerful<br/>{{card.powerful}}
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                    <div ng-click="mother.vote(card)" ng-show="card.sessionID === mother.sessionID">
+                                        <table width="100%">
+                                            <tr>
+                                                <td class="nonVotable">Interesting<br/>{{card.interesting}}</td>
+                                                <td class="nonVotable">Powerful<br/>{{card.powerful}}</td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

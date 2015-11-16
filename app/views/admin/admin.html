@@ -1,16 +1,45 @@
-<h1>Admin</h1>
-
-<div deckgrid class="deckgrid" source="stories">
-    <div class="photo">
-        <div class="photo-wrapper" ng-click="mother.photoClicked(card)">
-            <img class="smallpersona" width="50" src="{{card.imageURL}}" >
-            <i class="fa fa-times pull-right" ng-click="mother.delete(card)"></i>
-            <button ng-show="card.deleteMode===true"
-                    class="btn btn-mini btn-primary"
-                    ng-click="mother.actuallyDelete(card)">Delete</button>
+<div class="mainheadlinewrapperpage wrapper100percent startAnimation animated" data-animate="fadeInUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="mainheadlinepage">
+                    <h1>Admin<br>
+                    </h1>
+                </div>
+            </div>
         </div>
-        <b>{{card.name}}</b><br/>
-        <i>{{card.summary}}</i><p/>
-        {{card.text}}
+    </div>
+</div>
+<div class="wrapper100percent marginbottom4 startAnimation animated" data-animate="fadeInUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="pageContent">
+
+                    <div class="container">
+                        <button class="btn btn-primary">Lock Board</button>
+                        &nbsp;
+                        <button class="btn btn-primary">Unlock Board</button>
+                        <div deckgrid class="deckgrid" source="stories">
+                            <div class="photo">
+                                <div class="photo-wrapper">
+                                    <img class="smallpersona" width="50" src="{{card.imageURL}}">
+                                    <i class="fa fa-times pull-right" ng-click="mother.delete(card)"></i>
+                                    <button ng-show="card.deleteMode===true"
+                                            class="btn btn-mini btn-primary"
+                                            ng-click="mother.actuallyDelete(card)">Delete
+                                    </button>
+                                </div>
+                                <b>{{card.name}}</b><br/>
+                                <i>{{card.summary}}</i>
+
+                                <p/>
+                                {{card.text}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
