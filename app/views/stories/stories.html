@@ -41,6 +41,7 @@
                                             </td>
                                             <td width="10%">&nbsp;&nbsp;</td>
                                             <td>
+                                                <i ng-show="card.editable() && card.mode!=='edit'" ng-click="card.toggle()" class="fa fa-pencil pull-right editIcon"></i>
                                                 <h4 ng-show="card.mode!=='edit'">{{card.name}}</h4>
                                                 <input
                                                         type="text" id="inputUsername" class="form-control"
@@ -53,6 +54,8 @@
                                     </table>
                                     <div class="photo-description" ng-click="card.toggle()">
                                         <span ng-show="card.mode!=='edit'"><b>{{card.summary}}</b><br/></span>
+                                        <button href="#" ng-show="card.expanded===false && card.mode!=='edit'" ng-click="card.toggle($event)" class="speciallink">show story</button>
+                                        <button ng-show="card.expanded===true && card.mode!=='edit'" ng-click="card.toggle($event)" class="speciallink">collapse story</button><br/>
                                         <span ng-show="card.expanded===true && card.mode!=='edit'">{{card.text}}</span>
 
                                         <input type="text" class="form-control"

@@ -48,12 +48,16 @@ var ServedStory = (function (_super) {
         this.currentSessionID = currentSessionID;
         this.mode = "regular";
     }
+    ServedStory.prototype.editable = function () {
+        return this.sessionID === this.currentSessionID;
+    };
     ServedStory.prototype.update = function ($event) {
         $event.stopPropagation();
         this.mode = "regular";
         this.updateFn(this);
     };
-    ServedStory.prototype.toggle = function () {
+    ServedStory.prototype.toggle = function ($event) {
+        $event.stopPropagation();
         if (this.sessionID !== this.currentSessionID) {
             this.expanded = !this.expanded;
         }
