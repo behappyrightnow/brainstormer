@@ -30,7 +30,7 @@
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
-    "build": "npm run makeBuildFolder && npm run makeFontFolder && npm run buildView1 && npm run buildView2 && npm run buildView3 && npm run replace && npm run minifyJS  && npm run buildCSS && npm run copyImages && npm run copyIndex && npm run buildFont",
+    "build": "npm run makeBuildFolder && npm run makeFontFolder && npm run buildView1 && npm run buildView2 && npm run buildView3 && npm run replace && npm run minifyJS  && npm run buildCSS && npm run copyImages && npm run copyIndex && npm run buildFont && npm run copyImages",
     "makeBuildFolder": "mkdirp dist",
     "buildView1": "ng-html2js app/views/login/login.html -m brainstormer dist/login.js",
     "buildView2": "ng-html2js app/views/stories/stories.html -m brainstormer dist/stories.js",
@@ -47,7 +47,9 @@
     "copyBSFont": "copyfiles -u 4 app/bower_components/bootstrap/dist/fonts/* dist/",
     "replaceFAFontRef": "replace '../app/bower_components/font-awesome/' '' dist/bundle.css",
     "replaceBSFontRef": "replace '../app/bower_components/bootstrap/dist/' '' dist/bundle.css",
-    "buildFont": "npm run makeFontFolder && npm run copyFAFont && npm run copyBSFont && npm run replaceFAFontRef && npm run replaceBSFontRef"
+    "buildFont": "npm run makeFontFolder && npm run copyFAFont && npm run copyBSFont && npm run replaceFAFontRef && npm run replaceBSFontRef",
+    "makeImageFolder": "mkdirp dist/images",
+    "copyImages": "copyfiles -u 2 app/images/*.png dist/images/"
 
 
   }

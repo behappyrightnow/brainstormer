@@ -20,20 +20,22 @@ angular.module('brainstormer.stories', ['ngRoute'])
     var myScope = $scope;
     $scope.lastVotedCard = null;
     $scope.googleauth = function(card: ServedStory) {
-        console.log("Proceeding to authenticate with Google");
-        myDataRef.authWithOAuthPopup("google", function(error, authData) {
-          if (error) {
-            console.log("Login Failed!", error);
-          } else {
-            console.log("Authenticated successfully with payload:", authData);
-            card.imageURL = authData.google.profileImageURL;
-            card.name = authData.google.displayName;
-            card.updateFn(card);
-          }
-        }, {
-          remember: "sessionOnly",
-          scope: "email"
-        });
+        if (card.sessionID === $scope.sessionID) {
+            console.log("Proceeding to authenticate with Google");
+            myDataRef.authWithOAuthPopup("google", function (error, authData) {
+                if (error) {
+                    console.log("Login Failed!", error);
+                } else {
+                    console.log("Authenticated successfully with payload:", authData);
+                    card.imageURL = authData.google.profileImageURL;
+                    card.name = authData.google.displayName;
+                    card.updateFn(card);
+                }
+            }, {
+                remember: "sessionOnly",
+                scope: "email"
+            });
+        }
     };
 
     $scope.addNewStory = function() {
@@ -78,30 +80,6 @@ angular.module('brainstormer.stories', ['ngRoute'])
         console.log("Updated "+newStory.name+", summary: "+newStory.summary+", story: "+newStory.text);
         updateScope($scope);
       });
-    $scope.popover = function() {
-        console.log("popup");
-    }
-
-    $scope.select = function(card) {
-        if (card.mode==="edit") {
-            return;
-        }
-        console.log("Edit()");
-        card.selected = !card.selected;
-        if (card.sessionID === $scope.sessionID && card.mode !== "updated") {
-            console.log("Matched");
-            card.mode = "edit";
-        } else {
-            card.mode = "focus";
-            $scope.card = card;
-        }
-    }
-    $scope.photoClicked = function(card) {
-        console.log("Clicked photo on card "+card.name);
-        if (card.sessionID === $scope.sessionID) {
-            card.mode = "changeImage";
-        }
-    }
 
 }]);
 
