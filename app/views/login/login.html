@@ -1,72 +1,51 @@
-<div class="mainheadlinewrapperpage wrapper100percent startAnimation animated" data-animate="fadeInUp">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="mainheadlinepage">
-                    <h1>Your Story<br>
-                    </h1>
-                </div>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-12 col-lg-12">
+            <form class="form-signin">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <img src="{{imageURL}}" class="persona"/>
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <label for="inputUsername" class="sr-only">Your name</label>&nbsp;
+                            <input type="text" id="inputUsername" class="form-control pull-right"
+                                   placeholder="Full Name" required="" autofocus=""
+                                   ng-model="username"/><br/>
+                            <a class="pull-right" ng-click="googleauth()">get from Google
+                                account</a>
+                        </td>
+                    </tr>
+                </table>
+                <p/>
+
+                <p/>
+
+                <input type="text" id="summary" class="form-control"
+                       placeholder="One line summary of story" required="" autofocus=""
+                       ng-model="summary"/><br/>
+
+                <label for="story" class="sr-only">Your story</label>
+<textarea
+id="story"
+class="form-control storyBox"
+placeholder="Your story. Think of a time when DA really came alive for you."
+ng-model="story">
+</textarea><br/>
+                <span ng-show="storiesLoaded===false">Loading...</span>
+                <button ng-show="storiesLoaded===true" class="btn btn-lg btn-primary pull-right"
+                        type="submit"
+                        ng-click="submitStory(username, summary, story);"
+                        ng-disabled="summary === '' || story === ''">
+                    <span ng-show="storiesLoaded===true">Submit</span>
+                </button>
+                <br/><br/><br/><a ng-show="storiesLoaded===true" class="pull-right"
+                                  ng-click="cancel()"
+                    >skip story</a>
+            </form>
         </div>
     </div>
+
 </div>
-<div class="wrapper100percent marginbottom4 startAnimation animated" data-animate="fadeInUp">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div id="pageContent">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6 col-md-12 col-lg-12">
-                                <form class="form-signin">
-                                    <table width="100%">
-                                        <tr>
-                                            <td>
-                                                <img src="{{imageURL}}" class="persona"/>
-                                            </td>
-                                            <td>&nbsp;</td>
-                                            <td>
-                                                <label for="inputUsername" class="sr-only">Your name</label>&nbsp;
-                                                <input type="text" id="inputUsername" class="form-control pull-right"
-                                                       placeholder="Full Name" required="" autofocus=""
-                                                       ng-model="username"/><br/>
-                                                <a class="pull-right" ng-click="googleauth()">get from Google
-                                                    account</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <p/>
 
-                                    <p/>
-
-                                    <input type="text" id="summary" class="form-control"
-                                           placeholder="One line summary of story" required="" autofocus=""
-                                           ng-model="summary"/><br/>
-
-                                    <label for="story" class="sr-only">Your story</label>
-            <textarea
-                    id="story"
-                    class="form-control storyBox"
-                    placeholder="Your story. Think of a time when DA really came alive for you."
-                    ng-model="story">
-            </textarea><br/>
-                                    <span ng-show="storiesLoaded===false">Loading...</span>
-                                    <button ng-show="storiesLoaded===true" class="btn btn-lg btn-primary pull-right"
-                                            type="submit"
-                                            ng-click="submitStory(username, summary, story);"
-                                            ng-disabled="summary === '' || story === ''">
-                                        <span ng-show="storiesLoaded===true">Submit</span>
-                                    </button>
-                                    <br/><br/><br/><a ng-show="storiesLoaded===true" class="pull-right"
-                                                      ng-click="cancel()"
-                                        >skip story</a>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
