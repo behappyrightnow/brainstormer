@@ -3,7 +3,8 @@
 
 describe("Card tests", function () {
     var story:Story;
-    var config:Config
+    var config:Config;
+    var event:any;
     beforeEach(function() {
         config = {
             imageURL: "http://someimage.url",
@@ -13,6 +14,9 @@ describe("Card tests", function () {
             }
         };
         story = new Story("guest", "My lovely story", "Yankee doodle went to town", config);
+        event = {
+            stopPropagation: function() {}
+        }
     });
     it("should initialize properly", function() {
         expect(story.name).toBe("guest");
@@ -61,15 +65,12 @@ describe("Card tests", function () {
         describe("update should", function() {
             it("call updateFn", function() {
                 expect(updateFnCalled).toBe(false);
-                var event = {
-                    stopPropagation: function() {}
-                }
                 story.update(event);
                 expect(updateFnCalled).toBe(true);
             });
             it("toggle mode to edit", function() {
                 story.currentSessionID = "1234";
-                story.toggle();
+                story.toggle(event);
                 expect(story.mode).toBe("edit");
             });
         });
@@ -77,13 +78,13 @@ describe("Card tests", function () {
         describe("should support toggling of text when sessionIDs don't match", function() {
             it("should expand text when first toggled", function() {
                 expect(story.expanded).toBe(false);
-                story.toggle();
+                story.toggle(event);
                 expect(story.expanded).toBe(true);
             });
             it("should contract text when toggled twice", function() {
                 expect(story.expanded).toBe(false);
-                story.toggle();
-                story.toggle();
+                story.toggle(event);
+                story.toggle(event);
                 expect(story.expanded).toBe(false);
             });
         });
@@ -93,12 +94,12 @@ describe("Card tests", function () {
             });
             it("should not expand text when toggled", function() {
                 expect(story.expanded).toBe(false);
-                story.toggle();
+                story.toggle(event);
                 expect(story.expanded).toBe(false);
             });
             it("should change mode to edit", function() {
                 expect(story.mode).toBe("regular");
-                story.toggle();
+                story.toggle(event);
                 expect(story.mode).toBe("edit");
             });
         });
