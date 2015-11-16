@@ -13,13 +13,20 @@
 <div class="wrapper100percent marginbottom4 startAnimation animated" data-animate="fadeInUp">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-6">
                 <div id="pageContent">
 
                     <div class="container">
-                        <button class="btn btn-primary">Lock Board</button>
-                        &nbsp;
-                        <button class="btn btn-primary">Unlock Board</button>
+                        <table><tr><td>
+                            <button class="btn btn-primary" ng-disabled="adminStatus.locked===true" ng-click="lockBoard()">Lock Board</button>
+                        &nbsp;</td><td>
+                            <button class="btn btn-primary" ng-disabled="adminStatus.locked===false" ng-click="unlockBoard()">Unlock Board</button>
+                        &nbsp;</td><td>Header: <input class="form-control" type="text" placeholder="Header" ng-model="adminStatus.header"/>
+                        </td><td>&nbsp;</td><td>Message: <input class="form-control" type="text" placeholder="Contents" ng-model="adminStatus.message"/>
+                        </td><td>
+                            &nbsp;<button class="btn btn-primary" ng-click="updateHeaderAndMessage()">Update header and message</button>
+                        </td></tr></table>
+
                         <div deckgrid class="deckgrid" source="stories">
                             <div class="photo">
                                 <div class="photo-wrapper">
@@ -37,9 +44,11 @@
                                 {{card.text}}
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

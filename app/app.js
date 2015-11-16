@@ -4,8 +4,11 @@
 var appURL = 'https://luminous-heat-1750.firebaseio.com/';
 var storyURL = appURL + "stories/";
 var adminURL = appURL + "admin/";
+var logURL = adminURL + "log/";
 angular.module('brainstormer', [
     'ngRoute',
+    'brainstormer.logs',
+    'brainstormer.wait',
     'brainstormer.login',
     'brainstormer.stories',
     'brainstormer.admin',
@@ -13,13 +16,14 @@ angular.module('brainstormer', [
     'akoenig.deckgrid'
 ]).
     config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.otherwise({ redirectTo: '/login' });
+        $routeProvider.otherwise({ redirectTo: '/wait' });
     }]).
     constant("firebase", {
     "appURL": appURL,
     "storyURL": storyURL,
     "app": new Firebase(appURL),
     "stories": new Firebase(storyURL),
+    "log": new Firebase(logURL),
     "admin": new Firebase(adminURL),
     "sessionID": generateUUID(),
     "generateID": generateUUID,

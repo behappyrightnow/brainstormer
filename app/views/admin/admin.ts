@@ -16,6 +16,38 @@ angular.module('brainstormer.admin', ['ngRoute'])
     var adminDataRef = firebase.admin;
     var storyDataRef = firebase.stories;
     $scope.stories = new Array();
+    $scope.adminStatus = null;
+
+    function submitData(logMessage: string) {
+        $scope.adminStatus.log = new Date().toUTCString() + ": "+logMessage;
+        adminDataRef.set($scope.adminStatus);
+    }
+
+    adminDataRef.on('value', function(dataSnapshot) {
+        $scope.adminStatus = dataSnapshot.val();
+        if ($scope.adminStatus === null) {
+            $scope.adminStatus = {
+                locked: true,
+                header: "Please wait..",
+                message: "Please wait, this session hasn't started yet"
+            };
+            submitData("Set initial admin object");
+        }
+
+    });
+    $scope.lockBoard = function() {
+        $scope.adminStatus.locked = true;
+        submitData("Locked board");
+    }
+
+    $scope.unlockBoard = function() {
+        $scope.adminStatus.locked = false;
+        submitData("Unlocked board");
+    }
+
+    $scope.updateHeaderAndMessage = function() {
+        submitData("Updated header ("+$scope.adminStatus.header+") and message ("+$scope.adminStatus.message+")");
+    }
     storyDataRef.on('child_added', function(snapshot) {
         var newStory = snapshot.val();
         $scope.stories.push(newStory);
