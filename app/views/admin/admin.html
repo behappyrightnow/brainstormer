@@ -3,7 +3,7 @@
 <div deckgrid class="deckgrid" source="stories">
     <div class="photo">
         <div class="photo-wrapper" ng-click="mother.photoClicked(card)">
-            <img width="50" src="{{card.imageURL}}" >
+            <img class="smallpersona" width="50" src="{{card.imageURL}}" >
             <i class="fa fa-times pull-right" ng-click="mother.delete(card)"></i>
             <button ng-show="card.deleteMode===true"
                     class="btn btn-mini btn-primary"
@@ -11,6 +11,6 @@
         </div>
         <b>{{card.name}}</b><br/>
         <i>{{card.summary}}</i><p/>
-        {{card.story}}
+        {{card.text}}
     </div>
 </div>

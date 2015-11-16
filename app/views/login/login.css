@@ -75,10 +75,6 @@ h1, h2, h3, h4 {
     padding:0;
 }
 
-img {
-    height:auto;
-    max-width:100%;
-}
 
 
 @media only screen
@@ -108,4 +104,8 @@ and (min-device-width : 800px) {
         height:20em;
     }
 
+}
+
+.persona {
+    width: 70px;
 }

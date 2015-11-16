@@ -24,7 +24,7 @@ angular.module('brainstormer', [
         "sessionID": generateUUID(),
         "generateID": generateUUID,
         "username": "",
-        "imageURL": "http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png"
+        "imageURL": "images/silhouette.png"
     });
 
 function generateUUID(){

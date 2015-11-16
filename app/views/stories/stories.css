@@ -235,3 +235,10 @@
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
+
+.nonVotable {
+    text-align:center;
+}
+.smallerpersona {
+    width: 60px;
+}

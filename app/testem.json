@@ -1,0 +1,7 @@
+{
+	"framework": "jasmine",
+	"src_files": [
+		"views/login/story.js",
+        "test/storySpec.js"
+	]
+}
