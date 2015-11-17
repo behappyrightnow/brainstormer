@@ -50,12 +50,12 @@ angular.module('brainstormer.admin', ['ngRoute'])
         submitData("Updated header ("+$scope.adminStatus.header+") and message ("+$scope.adminStatus.message+")");
     };
     $scope.showStats = function() {
-        $scope.commandStory.action = "showStats";
+        $scope.commandStory= {action: "showStats"};
         console.log("Setting action to: "+$scope.commandStory.action);
         firebase.stats.set($scope.commandStory);
     }
     $scope.hideStats = function() {
-        $scope.commandStory.action = "hideStats";
+        $scope.commandStory = {action: "hideStats"};
         console.log("Setting action to: "+$scope.commandStory.action);
         firebase.stats.set($scope.commandStory);
     }

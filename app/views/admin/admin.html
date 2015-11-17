@@ -31,8 +31,8 @@
                             &nbsp;<button class="btn btn-warning" ng-click="hideStats()">Hide Stats</button>
                         </td><td>&nbsp;</td><td>
                             <input class="form-control" ng-model="url" placeholder="Paste URL here"/><br/>
-                            <button class="btn btn-warning" ng-click="iFrame()">Set iFrame</button>
-                            <button class="btn btn-warning" ng-click="page()">Set Page</button>
+                            <button class="btn btn-warning" ng-disabled="url===''" ng-click="iFrame()">Set iFrame</button>
+                            <button class="btn btn-warning" ng-disabled="url===''" ng-click="page()">Set Page</button>
                         </td></tr></table>
 
                         <div deckgrid class="deckgrid" source="stories">
