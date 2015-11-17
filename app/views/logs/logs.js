@@ -13,15 +13,15 @@ angular.module('brainstormer.logs', ['ngRoute'])
     .controller('LogsCtrl', ['$scope', '$location', '$route', 'firebase', function ($scope, $location, $rootScope, firebase) {
         var logRef = firebase.log;
         $scope.logs = [];
-        logRef.on('value', function (snapshot) {
-            var log = snapshot.val();
-            $scope.logs.push(log);
-            updateScope($scope);
-        });
-        logRef.on('child_changed', function (snapshot) {
-            var log = snapshot.val();
-            $scope.logs.push(log);
-            updateScope($scope);
-        });
+        //logRef.on('value', function(snapshot) {
+        //    var log = snapshot.val();
+        //    $scope.logs.push(log);
+        //    updateScope($scope);
+        //});
+        //logRef.on('child_changed', function(snapshot) {
+        //    var log = snapshot.val();
+        //    $scope.logs.push(log);
+        //    updateScope($scope);
+        //});
     }]);
 //# sourceMappingURL=logs.js.map

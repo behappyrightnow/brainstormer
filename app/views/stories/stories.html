@@ -1,11 +1,23 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav ng-if="showStats===false" class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
             <button class="btn btn-primary pull-right storyBtn" ng-click="addNewStory()">Add New Story</button>
         </div>
     </div>
 </nav>
-<div class="container storyContainer">
+<div ng-if="showStats===true" class="container">
+    <div class="row">
+        <h2>Results of voting</h2>
+        <ul>
+        <li ng-repeat="story in sortedStories()">
+            <b>{{story.name}}: {{story.summary}}</b><br/>
+            <i>Powerful: {{story.powerful}}, Interesting: {{story.interesting}}</i><br/>
+            {{story.text}}<br/>
+        </li>
+        </ul>
+    </div>
+</div>
+<div ng-if="showStats===false" class="container storyContainer">
     <div class="row">
         <div deckgrid class="deckgrid" source="tiles">
 

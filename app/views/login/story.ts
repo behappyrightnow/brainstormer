@@ -28,6 +28,7 @@ class Story {
     imageURL: string;
     storyID: string;
 
+
     constructor(
         name: string,
         summary: string,
@@ -41,6 +42,7 @@ class Story {
         this.name = name;
         this.summary = summary;
         this.text = text;
+
         if (sessionID === undefined) {
             this.sessionID = config.sessionID;
             this.interesting = 0;

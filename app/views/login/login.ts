@@ -16,7 +16,6 @@ angular.module('brainstormer.login', ['ngRoute'])
 .controller('LoginCtrl', ['$scope','$location','$route','firebase', function($scope, $location, $rootScope, firebase) {
     var myDataRef = firebase.stories;
     $scope.stories = {};
-    $scope.storiesLoaded = false;
     $scope.imageURL = firebase.imageURL;
     $scope.username = firebase.username;
     $scope.summary = "";
@@ -40,29 +39,26 @@ angular.module('brainstormer.login', ['ngRoute'])
           scope: "email"
         });
     }
-    var onValueChange = myDataRef.on('value', function(dataSnapshot) {
-        console.log("Received submit story screen event");
-        $scope.stories = dataSnapshot.val();
-        if ($scope.stories === null) {
-            $scope.stories = [];
-        }
-        $scope.storiesLoaded = true;
-        updateScope($scope);
-    });
+    //var onValueChange = myDataRef.on('value', function(dataSnapshot) {
+    //    console.log("Received submit story screen event");
+    //    $scope.stories = dataSnapshot.val();
+    //    if ($scope.stories === null) {
+    //        $scope.stories = [];
+    //    }
+    //    $scope.storiesLoaded = true;
+    //    updateScope($scope);
+    //});
     $scope.submitStory = function(username, summary, text) {
         var story:Story = new Story(username, summary, text, firebase);
         console.log("Receieved "+username+", "+text);
-        var data:Array<StorySleeve> = $scope.stories;
-        data[story.storyID] = story.toJSON();
+        var newStoryRef = new Firebase(firebase.storyURL+story.storyID);
         firebase.username = username;
         $scope.username = firebase.username;
-        myDataRef.set(data);
-        myDataRef.off('value', onValueChange);
+        newStoryRef.set(story);
         $location.path("/stories");
     }
 
     $scope.cancel = function() {
-        myDataRef.off('value', onValueChange);
         $location.path("/stories");
     }
 

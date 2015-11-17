@@ -17,7 +17,8 @@ angular.module('brainstormer.admin', ['ngRoute'])
     var storyDataRef = firebase.stories;
     $scope.stories = new Array();
     $scope.adminStatus = null;
-
+    $scope.statsStory = {showStats: false};
+    var storyDict = {};
     function submitData(logMessage: string) {
         $scope.adminStatus.log = new Date().toUTCString() + ": "+logMessage;
         adminDataRef.set($scope.adminStatus);
@@ -38,20 +39,32 @@ angular.module('brainstormer.admin', ['ngRoute'])
     $scope.lockBoard = function() {
         $scope.adminStatus.locked = true;
         submitData("Locked board");
-    }
+    };
 
     $scope.unlockBoard = function() {
         $scope.adminStatus.locked = false;
         submitData("Unlocked board");
-    }
+    };
 
     $scope.updateHeaderAndMessage = function() {
         submitData("Updated header ("+$scope.adminStatus.header+") and message ("+$scope.adminStatus.message+")");
-    }
+    };
+
+    $scope.toggleStats = function() {
+        $scope.statsStory.showStats = !$scope.statsStory.showStats;
+        console.log("Setting stats to: "+$scope.statsStory.showStats);
+        firebase.stats.set($scope.statsStory);
+    };
     storyDataRef.on('child_added', function(snapshot) {
         var newStory = snapshot.val();
-        $scope.stories.push(newStory);
-        updateScope($scope);
+        if ("showStats" in newStory) {
+            $scope.statsStory = newStory;
+            console.log("Received statsStory: "+newStory.showStats);
+        } else {
+            $scope.stories.push(newStory);
+            storyDict[newStory.storyID] = newStory;
+            updateScope($scope);
+        }
     });
     storyDataRef.on('child_changed', function(snapshot) {
         var newStory = snapshot.val();

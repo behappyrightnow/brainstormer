@@ -5,6 +5,7 @@ var appURL = 'https://luminous-heat-1750.firebaseio.com/';
 var storyURL = appURL+"stories/";
 var adminURL = appURL+"admin/";
 var logURL = adminURL+"log/";
+var statsURL = storyURL+"STATS/";
 angular.module('brainstormer', [
         'ngRoute',
         'brainstormer.logs',
@@ -25,6 +26,7 @@ angular.module('brainstormer', [
         "stories": new Firebase(storyURL),
         "log": new Firebase(logURL),
         "admin": new Firebase(adminURL),
+        "stats": new Firebase(statsURL),
         "sessionID": generateUUID(),
         "generateID": generateUUID,
         "username": "",

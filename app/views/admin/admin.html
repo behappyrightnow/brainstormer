@@ -25,6 +25,9 @@
                         </td><td>&nbsp;</td><td>Message: <input class="form-control" type="text" placeholder="Contents" ng-model="adminStatus.message"/>
                         </td><td>
                             &nbsp;<button class="btn btn-primary" ng-click="updateHeaderAndMessage()">Update header and message</button>
+                        </td><td>
+                            &nbsp;<button ng-show="statsStory.showStats===false" class="btn btn-warning" ng-click="toggleStats()">Show Stats</button>
+                            <button ng-show="statsStory.showStats===true" class="btn btn-warning" ng-click="toggleStats()">Hide Stats</button>
                         </td></tr></table>
 
                         <div deckgrid class="deckgrid" source="stories">
