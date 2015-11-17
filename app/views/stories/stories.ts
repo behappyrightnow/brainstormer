@@ -56,7 +56,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
         var story: ServedStory = new ServedStory(newStory, firebase, sessionID, updateFn);
         stories[newStory.storyID] = newStory;
         $scope.tiles.push(story);
-        console.log("Pushed "+newStory.name+", "+newStory.story);
+        console.log("Pushed "+newStory.name+", "+newStory.text);
         if (newStory.sessionID !== $scope.sessionID) {
             updateScope($scope);
         }

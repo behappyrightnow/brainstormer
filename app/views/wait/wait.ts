@@ -16,7 +16,8 @@ angular.module('brainstormer.wait', ['ngRoute'])
 .controller('WaitCtrl', ['$scope','$location','$route','firebase', function($scope, $location, $rootScope, firebase) {
     var adminRef = firebase.admin;
     $scope.adminStatus = null;
-    adminRef.on('value', function(dataSnapshot) {
+    var onValueChange = adminRef.on('value', function(dataSnapshot) {
+        console.log("Received admin event");
         $scope.adminStatus = dataSnapshot.val();
         if ($scope.adminStatus === null) {
             $scope.adminStatus = {
@@ -25,6 +26,8 @@ angular.module('brainstormer.wait', ['ngRoute'])
                 message: "Please wait, this session hasn't started yet"
             };
         } else if ($scope.adminStatus.locked === false) {
+            console.log("Unlocked");
+            adminRef.off('value', onValueChange);
             $location.path("/login");
         }
         updateScope($scope);
