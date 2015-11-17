@@ -73,7 +73,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 $scope.command.url = $sce.trustAsResourceUrl($scope.command.url);
             }
             if ($scope.command.action === "page") {
-                $window.open("//"+$scope.command.url);
+                $window.open($scope.command.url, '_blank');
             }
             updateScope($scope);
             console.log("Received action: "+$scope.command.action);
@@ -111,7 +111,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
                 $scope.command.url = $sce.trustAsResourceUrl($scope.command.url);
             }
             if ($scope.command.action === "page") {
-                $window.open("//"+$scope.command.url);
+                $window.open($scope.command.url, '_blank');
             }
         } else {
             var newServedStory = new ServedStory(newStory, firebase, sessionID, updateFn);
