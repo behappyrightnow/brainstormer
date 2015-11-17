@@ -110,3 +110,7 @@ and (min-device-width : 800px) {
     width: 70px;
     margin-top: 25px;
 }
+
+.summaryBox {
+    margin-top: 20px;
+}
