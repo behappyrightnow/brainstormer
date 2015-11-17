@@ -17,7 +17,8 @@
                 <div id="pageContent">
 
                     <div class="container">
-                        <table><tr><td>
+                        <table><tr><td><pre>{{commandStory|json}}</pre>
+                                </td></tr><tr><td>
                             <button class="btn btn-primary" ng-disabled="adminStatus.locked===true" ng-click="lockBoard()">Lock Board</button>
                         &nbsp;</td><td>
                             <button class="btn btn-primary" ng-disabled="adminStatus.locked===false" ng-click="unlockBoard()">Unlock Board</button>
@@ -26,7 +27,6 @@
                         </td><td>
                             &nbsp;<button class="btn btn-primary" ng-click="updateHeaderAndMessage()">Update header and message</button>
                         </td><td>
-                                <pre>{{commandStory|json}}</pre>
                                 &nbsp;<button class="btn btn-warning" ng-click="showStats()">Show Stats</button><br/>
                             &nbsp;<button class="btn btn-warning" ng-click="hideStats()">Hide Stats</button>
                         </td><td>&nbsp;</td><td>
