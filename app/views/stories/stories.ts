@@ -12,14 +12,15 @@ angular.module('brainstormer.stories', ['ngRoute'])
     controller: 'StoriesCtrl'
   });
 }])
-.controller('StoriesCtrl', ['$scope','$location','$route','firebase', function($scope, $location, $rootScope, firebase) {
+.controller('StoriesCtrl', ['$scope','$location','$route','firebase','$sce','$window', function($scope, $location, $rootScope, firebase, $sce, $window) {
     var myDataRef = firebase.stories;
     var sessionID = firebase.sessionID;
     $scope.sessionID = sessionID;
     var stories = {};
     var myScope = $scope;
     $scope.lastVotedCard = null;
-    $scope.showStats = false;
+    $scope.command = {action: "hideStats"};
+    $scope.pollLink = "https://docs.google.com/forms/d/1OmV0Kkp1Do9fsaUDcFgHCXKZwKrC_DV55UyskNL2_do/viewform?embedded=true";
     $scope.googleauth = function(card: ServedStory) {
         if (card.sessionID === $scope.sessionID) {
             console.log("Proceeding to authenticate with Google");
@@ -66,14 +67,16 @@ angular.module('brainstormer.stories', ['ngRoute'])
     }
     myDataRef.on('child_added', function(snapshot) {
         var newStory = snapshot.val();
-        if ("showStats" in newStory) {
-            if (newStory.showStats === true) {
-                console.log("Received command to show stats");
-            } else {
-                console.log("Received command to stop showing stats");
+        if ("action" in newStory) {
+            $scope.command = newStory;
+            if ($scope.command.action === "iFrame") {
+                $scope.command.url = $sce.trustAsResourceUrl($scope.command.url);
             }
-            $scope.showStats = newStory.showStats;
+            if ($scope.command.action === "page") {
+                $window.location.href = $scope.command.url;
+            }
             updateScope($scope);
+            console.log("Received action: "+$scope.command.action);
         } else {
             var story:ServedStory = new ServedStory(newStory, firebase, sessionID, updateFn);
             stories[newStory.storyID] = newStory;
@@ -86,6 +89,9 @@ angular.module('brainstormer.stories', ['ngRoute'])
       });
     myDataRef.on('child_removed', function(snapshot) {
         var delStory = snapshot.val();
+        if ("action" in delStory) {
+            return;
+        }
         var newTiles = new Array();
         for (var i=0;i<$scope.tiles.length;i++) {
             var tile = $scope.tiles[i];
@@ -98,9 +104,15 @@ angular.module('brainstormer.stories', ['ngRoute'])
     });
     myDataRef.on('child_changed', function(snapshot) {
         var newStory = snapshot.val();
-        if ("showStats" in newStory) {
-            console.log("Stats changed to: "+newStory.showStats);
-            $scope.showStats = newStory.showStats;
+        if ("action" in newStory) {
+            console.log("Action changed to: "+newStory.action);
+            $scope.command = newStory;
+            if ($scope.command.action === "iFrame") {
+                $scope.command.url = $sce.trustAsResourceUrl($scope.command.url);
+            }
+            if ($scope.command.action === "page") {
+                $window.location.href = $scope.command.url;
+            }
         } else {
             var newServedStory = new ServedStory(newStory, firebase, sessionID, updateFn);
             newServedStory.findSelfAndUpdate($scope.tiles);

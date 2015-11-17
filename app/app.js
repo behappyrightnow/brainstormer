@@ -5,7 +5,7 @@ var appURL = 'https://luminous-heat-1750.firebaseio.com/';
 var storyURL = appURL + "stories/";
 var adminURL = appURL + "admin/";
 var logURL = adminURL + "log/";
-var statsURL = storyURL + "STATS/";
+var statsURL = storyURL + "COMMAND/";
 angular.module('brainstormer', [
     'ngRoute',
     'brainstormer.logs',

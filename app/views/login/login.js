@@ -37,15 +37,6 @@ angular.module('brainstormer.login', ['ngRoute'])
                 scope: "email"
             });
         };
-        //var onValueChange = myDataRef.on('value', function(dataSnapshot) {
-        //    console.log("Received submit story screen event");
-        //    $scope.stories = dataSnapshot.val();
-        //    if ($scope.stories === null) {
-        //        $scope.stories = [];
-        //    }
-        //    $scope.storiesLoaded = true;
-        //    updateScope($scope);
-        //});
         $scope.submitStory = function (username, summary, text) {
             var story = new Story(username, summary, text, firebase);
             console.log("Receieved " + username + ", " + text);

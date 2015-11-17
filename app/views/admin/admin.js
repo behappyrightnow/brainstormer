@@ -15,7 +15,7 @@ angular.module('brainstormer.admin', ['ngRoute'])
         var storyDataRef = firebase.stories;
         $scope.stories = new Array();
         $scope.adminStatus = null;
-        $scope.statsStory = { showStats: false };
+        $scope.commandStory = { action: "hideStats" };
         var storyDict = {};
         function submitData(logMessage) {
             $scope.adminStatus.log = new Date().toUTCString() + ": " + logMessage;
@@ -43,16 +43,33 @@ angular.module('brainstormer.admin', ['ngRoute'])
         $scope.updateHeaderAndMessage = function () {
             submitData("Updated header (" + $scope.adminStatus.header + ") and message (" + $scope.adminStatus.message + ")");
         };
-        $scope.toggleStats = function () {
-            $scope.statsStory.showStats = !$scope.statsStory.showStats;
-            console.log("Setting stats to: " + $scope.statsStory.showStats);
-            firebase.stats.set($scope.statsStory);
+        $scope.showStats = function () {
+            $scope.commandStory.action = "showStats";
+            console.log("Setting action to: " + $scope.commandStory.action);
+            firebase.stats.set($scope.commandStory);
+        };
+        $scope.hideStats = function () {
+            $scope.commandStory.action = "hideStats";
+            console.log("Setting action to: " + $scope.commandStory.action);
+            firebase.stats.set($scope.commandStory);
+        };
+        $scope.iFrame = function () {
+            $scope.commandStory.action = "iFrame";
+            $scope.commandStory.url = $scope.url;
+            console.log("Setting action to: " + $scope.commandStory.action);
+            firebase.stats.set($scope.commandStory);
+        };
+        $scope.page = function () {
+            $scope.commandStory.action = "page";
+            $scope.commandStory.url = $scope.url;
+            console.log("Setting action to: " + $scope.commandStory.action);
+            firebase.stats.set($scope.commandStory);
         };
         storyDataRef.on('child_added', function (snapshot) {
             var newStory = snapshot.val();
-            if ("showStats" in newStory) {
-                $scope.statsStory = newStory;
-                console.log("Received statsStory: " + newStory.showStats);
+            if ("action" in newStory) {
+                $scope.commandStory = newStory;
+                console.log("Received commandStory: " + newStory.action);
             }
             else {
                 $scope.stories.push(newStory);
@@ -62,19 +79,24 @@ angular.module('brainstormer.admin', ['ngRoute'])
         });
         storyDataRef.on('child_changed', function (snapshot) {
             var newStory = snapshot.val();
-            for (var i = 0; i < $scope.stories.length; i++) {
-                var story = $scope.stories[i];
-                if (story.storyID === newStory.storyID) {
-                    story.summary = newStory.summary;
-                    story.story = newStory.story;
-                    story.powerful = newStory.powerful;
-                    story.interesting = newStory.interesting;
-                    story.name = newStory.name;
-                    story.imageURL = newStory.imageURL;
-                    story.deleteMode = false;
-                }
+            if ("action" in newStory) {
+                $scope.commandStory = newStory;
             }
-            console.log("Updated " + newStory.name + ", summary: " + newStory.summary + ", story: " + newStory.story);
+            else {
+                for (var i = 0; i < $scope.stories.length; i++) {
+                    var story = $scope.stories[i];
+                    if (story.storyID === newStory.storyID) {
+                        story.summary = newStory.summary;
+                        story.story = newStory.story;
+                        story.powerful = newStory.powerful;
+                        story.interesting = newStory.interesting;
+                        story.name = newStory.name;
+                        story.imageURL = newStory.imageURL;
+                        story.deleteMode = false;
+                    }
+                }
+                console.log("Updated " + newStory.name + ", summary: " + newStory.summary + ", story: " + newStory.story);
+            }
             updateScope($scope);
         });
         $scope.delete = function (card) {

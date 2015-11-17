@@ -1,11 +1,15 @@
-<nav ng-if="showStats===false" class="navbar navbar-default navbar-fixed-top">
+<div ng-if="command.action==='page'">
+    Please wait, redirecting you...
+</div>
+<iframe ng-if="command.action==='iFrame'" src="{{command.url}}" width="300" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+<nav ng-if="command.action==='hideStats'" class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
             <button class="btn btn-primary pull-right storyBtn" ng-click="addNewStory()">Add New Story</button>
         </div>
     </div>
 </nav>
-<div ng-if="showStats===true" class="container">
+<div ng-if="command.action==='showStats'" class="container">
     <div class="row">
         <h2>Results of voting</h2>
         <ul>
@@ -17,7 +21,7 @@
         </ul>
     </div>
 </div>
-<div ng-if="showStats===false" class="container storyContainer">
+<div ng-if="command.action==='hideStats'" class="container storyContainer">
     <div class="row">
         <div deckgrid class="deckgrid" source="tiles">
 
