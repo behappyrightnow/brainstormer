@@ -77,6 +77,9 @@ angular.module('brainstormer.admin', ['ngRoute'])
                 updateScope($scope);
             }
         });
+        $scope.sortedStories = function () {
+            return sortedStories($scope.stories);
+        };
         storyDataRef.on('child_changed', function (snapshot) {
             var newStory = snapshot.val();
             if ("action" in newStory) {

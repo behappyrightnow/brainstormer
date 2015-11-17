@@ -45,15 +45,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
             updateScope($scope);
         };
         $scope.sortedStories = function () {
-            var answer = new Array();
-            for (var i = 0; i < $scope.tiles.length; i++) {
-                var tile = $scope.tiles[i];
-                answer.push(tile);
-            }
-            answer.sort(function (story1, story2) {
-                return (story2.powerful * 100 - story1.powerful * 100) + (story2.interesting - story1.interesting);
-            });
-            return answer;
+            return sortedStories($scope.tiles);
         };
         function sortMyStoriesFirst(tiles) {
             tiles.sort(function (story1, story2) {

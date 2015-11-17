@@ -48,3 +48,15 @@ function updateScope($scope) {
         $scope.$apply();
     }
 }
+
+function sortedStories(tiles) {
+    var answer = new Array();
+    for (var i=0;i<tiles.length;i++) {
+        var tile = tiles[i];
+        answer.push(tile);
+    }
+    answer.sort(function(story1, story2) {
+        return (story2.powerful*5-story1.powerful*5)+(story2.interesting*3-story1.interesting*3);
+    })
+    return answer;
+}

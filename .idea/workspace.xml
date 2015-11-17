@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b212154-cf4f-409e-a6e9-5cef70f28376" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/stories/stories.html" afterPath="$PROJECT_DIR$/app/views/stories/stories.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login/story.js.map" afterPath="$PROJECT_DIR$/app/views/login/story.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login/story.js" afterPath="$PROJECT_DIR$/app/views/login/story.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login/story.ts" afterPath="$PROJECT_DIR$/app/views/login/story.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/admin.html" afterPath="$PROJECT_DIR$/app/views/admin/admin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/admin.js.map" afterPath="$PROJECT_DIR$/app/views/admin/admin.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/admin.js" afterPath="$PROJECT_DIR$/app/views/admin/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/admin.ts" afterPath="$PROJECT_DIR$/app/views/admin/admin.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.js.map" afterPath="$PROJECT_DIR$/app/app.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.js" afterPath="$PROJECT_DIR$/app/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.ts" afterPath="$PROJECT_DIR$/app/app.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/stories/stories.js.map" afterPath="$PROJECT_DIR$/app/views/stories/stories.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/stories/stories.js" afterPath="$PROJECT_DIR$/app/views/stories/stories.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/stories/stories.ts" afterPath="$PROJECT_DIR$/app/views/stories/stories.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="brainstormer.iws" />
@@ -34,8 +40,8 @@
       <file leaf-file-name="admin.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/admin.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.4814814" vertical-offset="1088" max-vertical-offset="3240">
-              <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
+            <state vertical-scroll-proportion="-18.37037" vertical-offset="1424" max-vertical-offset="3312">
+              <caret line="85" column="24" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="24" />
               <folding>
                 <element signature="e#801#931#0" expanded="false" />
               </folding>
@@ -53,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/admin/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="10.916667" vertical-offset="1111" max-vertical-offset="1632">
-              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.41463414" vertical-offset="599" max-vertical-offset="1632">
+              <caret line="37" column="78" selection-start-line="37" selection-start-column="78" selection-end-line="37" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -66,8 +72,8 @@
       <file leaf-file-name="app.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
-              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="851" max-vertical-offset="1608">
+              <caret line="51" column="22" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -76,8 +82,8 @@
       <file leaf-file-name="stories.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/stories/stories.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.222222" vertical-offset="117" max-vertical-offset="3408">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            <state vertical-scroll-proportion="50.296295" vertical-offset="2486" max-vertical-offset="3216">
+              <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -113,10 +119,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="story.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="story.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/login/story.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58784676" vertical-offset="2723" max-vertical-offset="5160">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2723" max-vertical-offset="5160">
               <caret line="132" column="33" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
               <folding />
             </state>
@@ -167,14 +173,14 @@
         <option value="$PROJECT_DIR$/app/test/storySpec.ts" />
         <option value="$PROJECT_DIR$/app/views/login/login.html" />
         <option value="$PROJECT_DIR$/app/views/logs/logs.ts" />
-        <option value="$PROJECT_DIR$/app/app.ts" />
         <option value="$PROJECT_DIR$/app/views/login/login.ts" />
-        <option value="$PROJECT_DIR$/app/views/admin/admin.ts" />
-        <option value="$PROJECT_DIR$/app/views/admin/admin.html" />
-        <option value="$PROJECT_DIR$/app/views/stories/stories.ts" />
         <option value="$PROJECT_DIR$/app/views/stories/stories.css" />
         <option value="$PROJECT_DIR$/app/views/stories/stories.html" />
         <option value="$PROJECT_DIR$/app/views/login/story.ts" />
+        <option value="$PROJECT_DIR$/app/views/stories/stories.ts" />
+        <option value="$PROJECT_DIR$/app/app.ts" />
+        <option value="$PROJECT_DIR$/app/views/admin/admin.ts" />
+        <option value="$PROJECT_DIR$/app/views/admin/admin.html" />
       </list>
     </option>
   </component>
@@ -1036,14 +1042,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/login/login.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.555555" vertical-offset="600" max-vertical-offset="1512">
@@ -1060,36 +1058,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/admin.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4814814" vertical-offset="1088" max-vertical-offset="3240">
-          <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
-          <folding>
-            <element signature="e#801#931#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.916667" vertical-offset="1111" max-vertical-offset="1632">
-          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/demo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.6969695" vertical-offset="4" max-vertical-offset="1128">
           <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/stories/stories.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.222222" vertical-offset="117" max-vertical-offset="3408">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1102,6 +1074,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/login/story.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2723" max-vertical-offset="5160">
+          <caret line="132" column="33" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/stories/stories.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.0833335" vertical-offset="1591" max-vertical-offset="2976">
@@ -1110,10 +1090,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/login/story.ts">
+    <entry file="file://$PROJECT_DIR$/app/views/stories/stories.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58784676" vertical-offset="2723" max-vertical-offset="5160">
-          <caret line="132" column="33" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
+        <state vertical-scroll-proportion="50.296295" vertical-offset="2486" max-vertical-offset="3216">
+          <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="851" max-vertical-offset="1608">
+          <caret line="51" column="22" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/admin.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.37037" vertical-offset="1424" max-vertical-offset="3312">
+          <caret line="85" column="24" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="24" />
+          <folding>
+            <element signature="e#801#931#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41463414" vertical-offset="599" max-vertical-offset="1632">
+          <caret line="37" column="78" selection-start-line="37" selection-start-column="78" selection-end-line="37" selection-end-column="78" />
           <folding />
         </state>
       </provider>
