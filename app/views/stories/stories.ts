@@ -21,6 +21,8 @@ angular.module('brainstormer.stories', ['ngRoute'])
     $scope.lastVotedCard = null;
     $scope.command = {action: "hideStats"};
     $scope.pollLink = "https://docs.google.com/forms/d/1OmV0Kkp1Do9fsaUDcFgHCXKZwKrC_DV55UyskNL2_do/viewform?embedded=true";
+    $scope.tiles = [];
+
     $scope.googleauth = function(card: ServedStory) {
         if (card.sessionID === $scope.sessionID) {
             console.log("Proceeding to authenticate with Google");
@@ -56,7 +58,14 @@ angular.module('brainstormer.stories', ['ngRoute'])
         })
         return answer;
     }
-    $scope.tiles = [];
+    function sortMyStoriesFirst(tiles) {
+        tiles.sort(function(story1, story2) {
+            var s1 = story1.sessionID === $scope.sessionID ? 1:0;
+            var s2 = story2.sessionID === $scope.sessionID ? 1:0;
+            return s2-s1;
+        })
+    }
+
     var myScope = $scope;
     var updateFn: UpdateFunction = function(story: ServedStory) {
         var storyCardRef = new Firebase(firebase.storyURL + story.storyID);
@@ -81,6 +90,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
             var story:ServedStory = new ServedStory(newStory, firebase, sessionID, updateFn);
             stories[newStory.storyID] = newStory;
             $scope.tiles.push(story);
+            sortMyStoriesFirst($scope.tiles);
             console.log("Pushed " + newStory.name + ", " + newStory.text);
             if (newStory.sessionID !== $scope.sessionID) {
                 updateScope($scope);
@@ -100,6 +110,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
             }
         }
         $scope.tiles = newTiles;
+        sortMyStoriesFirst($scope.tiles);
         updateScope($scope);
     });
     myDataRef.on('child_changed', function(snapshot) {
