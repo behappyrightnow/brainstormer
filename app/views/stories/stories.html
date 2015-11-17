@@ -80,7 +80,11 @@
                     <button ng-show="card.mode==='edit'"
                             class="btn btn-small btn-primary pull-right updateBtn"
                             ng-click="card.update($event)">Update
-                    </button>
+                    </button><br/>
+                    <button
+                            type="reset" ng-show="card.mode==='edit'"
+                            class="speciallink"
+                            ng-click="card.cancelEdit($event)">Cancel</button>
                 </div>
                 <div ng-click="mother.vote(card)" ng-show="card.sessionID !== mother.sessionID">
                     <table width="100%">

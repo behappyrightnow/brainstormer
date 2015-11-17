@@ -85,6 +85,9 @@ class ServedStory extends Story {
     expanded: boolean;
     mode: string;
     currentSessionID: string;
+    oldName: string;
+    oldSummary: string;
+    oldText: string;
 
     constructor(story: StorySleeve,
                 config: Config,
@@ -107,6 +110,9 @@ class ServedStory extends Story {
         this.expanded = false;
         this.currentSessionID = currentSessionID;
         this.mode = "regular";
+        this.oldName = this.name;
+        this.oldText = this.text;
+        this.oldSummary = this.summary;
     }
     editable(): boolean {
         return this.sessionID === this.currentSessionID;
@@ -115,6 +121,16 @@ class ServedStory extends Story {
         $event.stopPropagation();
         this.mode = "regular";
         this.updateFn(this);
+        this.oldName = this.name;
+        this.oldSummary = this.summary;
+        this.oldText = this.text;
+    }
+    cancelEdit($event) {
+        $event.stopPropagation();
+        this.mode = "regular";
+        this.name = this.oldName;
+        this.summary = this.oldSummary;
+        this.text = this.oldText;
     }
 
     toggle($event) {

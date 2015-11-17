@@ -47,6 +47,9 @@ var ServedStory = (function (_super) {
         this.expanded = false;
         this.currentSessionID = currentSessionID;
         this.mode = "regular";
+        this.oldName = this.name;
+        this.oldText = this.text;
+        this.oldSummary = this.summary;
     }
     ServedStory.prototype.editable = function () {
         return this.sessionID === this.currentSessionID;
@@ -55,6 +58,16 @@ var ServedStory = (function (_super) {
         $event.stopPropagation();
         this.mode = "regular";
         this.updateFn(this);
+        this.oldName = this.name;
+        this.oldSummary = this.summary;
+        this.oldText = this.text;
+    };
+    ServedStory.prototype.cancelEdit = function ($event) {
+        $event.stopPropagation();
+        this.mode = "regular";
+        this.name = this.oldName;
+        this.summary = this.oldSummary;
+        this.text = this.oldText;
     };
     ServedStory.prototype.toggle = function ($event) {
         $event.stopPropagation();
