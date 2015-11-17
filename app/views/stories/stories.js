@@ -71,7 +71,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
                     $scope.command.url = $sce.trustAsResourceUrl($scope.command.url);
                 }
                 if ($scope.command.action === "page") {
-                    $window.location.href = $scope.command.url;
+                    $window.open("//" + $scope.command.url);
                 }
                 updateScope($scope);
                 console.log("Received action: " + $scope.command.action);
@@ -110,7 +110,7 @@ angular.module('brainstormer.stories', ['ngRoute'])
                     $scope.command.url = $sce.trustAsResourceUrl($scope.command.url);
                 }
                 if ($scope.command.action === "page") {
-                    $window.location.href = $scope.command.url;
+                    $window.open("//" + $scope.command.url);
                 }
             }
             else {
