@@ -13,8 +13,9 @@
                             <input type="text" id="inputUsername" class="form-control pull-right"
                                    placeholder="Full Name" required="" autofocus=""
                                    ng-model="username"/><br/>
-                            <a class="pull-right" ng-click="googleauth()">get from Google
-                                account</a>
+                            <button
+                                    class="speciallink pull-right"
+                                    ng-click="googleauth()">get from Google account</button>
                         </td>
                     </tr>
                 </table>
@@ -27,12 +28,12 @@
                        ng-model="summary"/><br/>
 
                 <label for="story" class="sr-only">Your story</label>
-<textarea
-id="story"
-class="form-control storyBox"
-placeholder="Your story. Think of a time when DA really came alive for you."
-ng-model="story">
-</textarea><br/>
+                <textarea
+                id="story"
+                class="form-control storyBox"
+                placeholder="Your story. Think of a time when DA really came alive for you."
+                ng-model="story">
+                </textarea><br/>
                 <button class="btn btn-lg btn-primary pull-right"
                         type="submit"
                         ng-click="submitStory(username, summary, story);"
